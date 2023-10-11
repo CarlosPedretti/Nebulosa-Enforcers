@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: b60a304eff425ea4ab821bb0bfb68b41
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_1
+    originalName: 
+    pivot: {x: 0.5694445, y: -0.32941177}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 292
+      width: 72
+      height: 85
+    spriteID: c9893ec10e2999444aa160596f863d5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 292}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_2
+    originalName: 
+    pivot: {x: 0.5822785, y: -0.3139535}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 198
+      width: 79
+      height: 86
+    spriteID: 67f025225fa7246458f42585a13dc357
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 198}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_3
+    originalName: 
+    pivot: {x: 0.5730337, y: -0.24444444}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 4
+      width: 89
+      height: 90
+    spriteID: 5bb29b5c4d7c00d4cbf668847435d3bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 4}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_4
+    originalName: 
+    pivot: {x: 0.56565654, y: -0.17525773}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 225
+      width: 99
+      height: 97
+    spriteID: 40ac90a2041a50f40906c1685ec21bb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 225}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_5
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.11764707}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 4
+      width: 104
+      height: 102
+    spriteID: f019c663f33670a48bb82af5aebdf87c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 4}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_6
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.116504855}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 357
+      width: 105
+      height: 103
+    spriteID: defb61144a0cc5a4f969856b5a7b197e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 357}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_7
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.11320755}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 131
+      width: 105
+      height: 106
+    spriteID: 30186470f1d8a8a47993fd8e01e8ec42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_8
+    originalName: 
+    pivot: {x: 0.5585586, y: -0.050420173}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 111
+      height: 119
+    spriteID: 3702f3f7a3dcf8342b0151685ec893b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_9
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.11538462}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 245
+      width: 105
+      height: 104
+    spriteID: 2f0294088fddc16458a7162b26c39b59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 245}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_10
+    originalName: 
+    pivot: {x: 0.51, y: -0.116504855}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 114
+      width: 100
+      height: 103
+    spriteID: db29c38a7c9ba1f478b93cfc44131b6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 114}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_11
+    originalName: 
+    pivot: {x: 0.48421055, y: -0.17346938}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 330
+      width: 95
+      height: 98
+    spriteID: 3f719cf2d74f339478a8375624d5d17a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 330}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_12
+    originalName: 
+    pivot: {x: 0.48235294, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 102
+      width: 85
+      height: 88
+    spriteID: 60e3dbe2ec6be2f49bdcc386ce1c3c44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 102}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_13
+    originalName: 
+    pivot: {x: 0.4935065, y: -0.34615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 385
+      width: 77
+      height: 78
+    spriteID: 0697a9d6006f9ed4a99ecfe1b27e35af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 385}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_14
+    originalName: 
+    pivot: {x: 0.52112675, y: -0.42857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 436
+      width: 71
+      height: 70
+    spriteID: dcb26e6957044c74f881b1f404981462
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 436}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_15
+    originalName: 
+    pivot: {x: 0.56338024, y: -0.46268657}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 402
+      y: 4
+      width: 71
+      height: 67
+    spriteID: b25f27c865f74d443885bccbcf6bb4d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 402, y: 4}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_16
+    originalName: 
+    pivot: {x: -1.6666667, y: -0.4117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 436
+      width: 12
+      height: 68
+    spriteID: 8591ebb83203fb748a8a846bf8d20165
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 202, y: 436}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_17
+    originalName: 
+    pivot: {x: -1.75, y: -7.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 471
+      width: 12
+      height: 12
+    spriteID: 489dc415a5a30c942bf95350437df54c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 471}
+  - name: Nairan - Battlecruiser  -  Destruction_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.32941177}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 4
+      width: 62
+      height: 85
+    spriteID: b818e6c1c82c5ea488f7d8760319d2b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -74202964
+    name: Nairan - Battlecruiser  -  Destruction
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 28
+        width: 72
+        height: 85
+      spriteId: c9893ec10e2999444aa160596f863d5b
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 18
+        y: 27
+        width: 79
+        height: 86
+      spriteId: 67f025225fa7246458f42585a13dc357
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 13
+        y: 22
+        width: 89
+        height: 90
+      spriteId: 5bb29b5c4d7c00d4cbf668847435d3bf
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 8
+        y: 17
+        width: 99
+        height: 97
+      spriteId: 40ac90a2041a50f40906c1685ec21bb4
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 8
+        y: 12
+        width: 104
+        height: 102
+      spriteId: f019c663f33670a48bb82af5aebdf87c
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 8
+        y: 12
+        width: 105
+        height: 103
+      spriteId: defb61144a0cc5a4f969856b5a7b197e
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 8
+        y: 12
+        width: 105
+        height: 106
+      spriteId: 30186470f1d8a8a47993fd8e01e8ec42
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 2
+        y: 6
+        width: 111
+        height: 119
+      spriteId: 3702f3f7a3dcf8342b0151685ec893b4
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 8
+        y: 12
+        width: 105
+        height: 104
+      spriteId: 2f0294088fddc16458a7162b26c39b59
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 13
+        y: 12
+        width: 100
+        height: 103
+      spriteId: db29c38a7c9ba1f478b93cfc44131b6a
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 18
+        y: 17
+        width: 95
+        height: 98
+      spriteId: 3f719cf2d74f339478a8375624d5d17a
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 23
+        y: 22
+        width: 85
+        height: 88
+      spriteId: 60e3dbe2ec6be2f49bdcc386ce1c3c44
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 26
+        y: 27
+        width: 77
+        height: 78
+      spriteId: 0697a9d6006f9ed4a99ecfe1b27e35af
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 27
+        y: 30
+        width: 71
+        height: 70
+      spriteId: dcb26e6957044c74f881b1f404981462
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 24
+        y: 31
+        width: 71
+        height: 67
+      spriteId: b25f27c865f74d443885bccbcf6bb4d6
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 84
+        y: 28
+        width: 12
+        height: 68
+      spriteId: 8591ebb83203fb748a8a846bf8d20165
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 85
+        y: 87
+        width: 12
+        height: 12
+      spriteId: 489dc415a5a30c942bf95350437df54c
+    - name: Nairan - Battlecruiser  -  Destruction_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 33
+        y: 28
+        width: 62
+        height: 85
+      spriteId: b818e6c1c82c5ea488f7d8760319d2b0
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 128, y: 128}
