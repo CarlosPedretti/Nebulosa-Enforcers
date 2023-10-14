@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.InputSystem;
 
 public class Movement : NetworkBehaviour
 {
@@ -9,21 +10,30 @@ public class Movement : NetworkBehaviour
     [SerializeField] private float drag = 5f;
     [SerializeField] private Rigidbody2D rb;
 
+    private Vector2 moveDirection;
+
+
+    private PlayerInput playerInput;
+
+    void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
 
     void FixedUpdate()
     {
 
-        float inputY = Input.GetAxis("Vertical");
-        float inputX = Input.GetAxis("Horizontal");
+        moveDirection = playerInput.actions["Movement"].ReadValue<Vector2>();
+        //float inputY = Input.GetAxis("Vertical");
+        //float inputX = Input.GetAxis("Horizontal");
 
-        Move(inputX, inputY);
+        Move(moveDirection);
 
     }
 
-
-    private void Move(float inputX, float inputY)
+    public void Move(Vector2 moveDirection)
     {
-        Vector2 movement = new Vector2(speed * inputX, speed * inputY);
+        Vector2 movement = new Vector2(speed * moveDirection.x, speed * moveDirection.y);
 
         rb.AddForce(movement * speed);
 
