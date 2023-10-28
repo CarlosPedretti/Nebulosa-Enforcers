@@ -134,17 +134,20 @@ public class LobbyManager : MonoBehaviour {
                     joinedLobby = null;
                 }
 
-               /*if (joinedLobby.Data[KEY_START_GAME].Value != "0")
-                {
-                    if (!IsLobbyHost()) //Lobby host already joined Relay
+               if (joinedLobby.Data[KEY_START_GAME].Value != "0")
+               {
+
+                    if(!IsLobbyHost())             //if (joinedLobby.Players.Count < joinedLobby.MaxPlayers)
                     {
                         RelayManager.Instance.JoinRelay(joinedLobby.Data[KEY_START_GAME].Value);
+                        Debug.Log("1 Player Joined to: " + joinedLobby.Data[KEY_START_GAME].Value);
                     }
-                }
 
-                joinedLobby = null;
+               }
 
-                OnGameStarted?.Invoke(this, EventArgs.Empty);*/
+                //joinedLobby = null;
+
+                OnGameStarted?.Invoke(this, EventArgs.Empty);
             }
         }
     }

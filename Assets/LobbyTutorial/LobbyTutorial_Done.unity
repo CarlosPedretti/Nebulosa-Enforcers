@@ -3957,7 +3957,7 @@ MonoBehaviour:
   ConnectionData:
     Address: 127.0.0.1
     Port: 7777
-    ServerListenAddress: 0.0.0.0
+    ServerListenAddress: 127.0.0.1
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -3981,8 +3981,8 @@ MonoBehaviour:
     Prefabs:
       NetworkPrefabsLists: []
     TickRate: 30
-    ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 1
+    ClientConnectionBufferTimeout: 30
+    ConnectionApproval: 0
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
