@@ -33,6 +33,8 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
+            LobbyManager.Instance.SpawnPlayerServerRpc();
+
             return joinCode;
         }
         catch (RelayServiceException e)
@@ -55,6 +57,8 @@ public class RelayManager : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartClient();
+
+            LobbyManager.Instance.SpawnPlayerServerRpc();
 
         }
         catch(RelayServiceException e)

@@ -40,7 +40,7 @@ public class LobbyCreateUI : MonoBehaviour {
         });
 
         lobbyNameButton.onClick.AddListener(() => {
-            UI_InputWindow.Show_Static("Lobby Name", lobbyName, "abcdefghijklmnopqrstuvxywzABCDEFGHIJKLMNOPQRSTUVXYWZ .,-", 30,
+            UI_InputWindow.Show_Static("Lobby Name", lobbyName, "abcdefghijklmnopqrstuvxywzABCDEFGHIJKLMNOPQRSTUVXYWZ 1234567809 .,-", 30,
             () => {
                 // Cancel
             },

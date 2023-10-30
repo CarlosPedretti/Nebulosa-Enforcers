@@ -24,8 +24,6 @@ public class Movement : NetworkBehaviour
     {
 
         moveDirection = playerInput.actions["Movement"].ReadValue<Vector2>();
-        //float inputY = Input.GetAxis("Vertical");
-        //float inputX = Input.GetAxis("Horizontal");
 
         Move(moveDirection);
 

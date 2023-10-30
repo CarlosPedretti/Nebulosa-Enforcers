@@ -33,15 +33,15 @@ public class LobbyUI : MonoBehaviour {
 
         changeMarineButton.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1, LobbyManager.PlayerPrefab.Prefab1);
         });
         changeNinjaButton.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2, LobbyManager.PlayerPrefab.Prefab2);
         });
         changeZombieButton.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3, LobbyManager.PlayerPrefab.Prefab3);
         });
 
         leaveLobbyButton.onClick.AddListener(() =>
