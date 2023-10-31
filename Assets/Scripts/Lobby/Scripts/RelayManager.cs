@@ -33,7 +33,9 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
-            LobbyManager.Instance.SpawnPlayerServerRpc();
+            //LobbyManager.Instance.SpawnPlayerServerRpc();
+
+            Debug.Log("CREATE RELAY Ejecutado!!!!!!");
 
             return joinCode;
         }
@@ -58,10 +60,11 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartClient();
 
-            LobbyManager.Instance.SpawnPlayerServerRpc();
+            //LobbyManager.Instance.SpawnPlayerServerRpc();
 
+            Debug.Log("JoinRelay Ejecutado!!!!!!");
         }
-        catch(RelayServiceException e)
+        catch (RelayServiceException e)
         {
             Debug.Log(e);
         }

@@ -168,9 +168,21 @@ public class LobbyManager : MonoBehaviour
 
                     if (!IsLobbyHost())
                     {
+                        foreach (Player player in joinedLobby.Players)
+                        {
+                            int playersJoinedCount = 1;
+                            if (!IsLobbyHost() && playersJoinedCount < joinedLobby.MaxPlayers)
+                            {
+                                RelayManager.Instance.JoinRelay(joinedLobby.Data[KEY_START_GAME].Value);
+                                Debug.Log("1 Player Joined to: " + joinedLobby.Data[KEY_START_GAME].Value);
 
-                        RelayManager.Instance.JoinRelay(joinedLobby.Data[KEY_START_GAME].Value);
-                        Debug.Log("1 Player Joined to: " + joinedLobby.Data[KEY_START_GAME].Value);
+                                playersJoinedCount++;
+
+                                Debug.Log("playersJoinedCount: " + playersJoinedCount + " " + "joinedLobby.MaxPlayers: " + joinedLobby.MaxPlayers);
+
+                            }
+
+                        }
                     }
 
                 }
@@ -211,7 +223,20 @@ public class LobbyManager : MonoBehaviour
 
     public GameObject UpdatePlayerPrefab(Player player)
     {
-        LobbyManager.PlayerPrefab playerPrefab = System.Enum.Parse<LobbyManager.PlayerPrefab>(player.Data[LobbyManager.KEY_PLAYER_PREFAB].Value);
+        /*if (IsLobbyHost())
+        {
+            PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
+            _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
+            return _playerPrefab;
+        }
+        else
+        {
+            PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
+            _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
+            return _playerPrefab;
+        }*/
+
+        PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
         _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
         return _playerPrefab;
     }
@@ -472,14 +497,18 @@ public class LobbyManager : MonoBehaviour
         
         Player newPlayer = GetPlayer();
 
-        foreach (Player player in joinedLobby.Players)
+        Instantiate(UpdatePlayerPrefab(newPlayer));
+        UpdatePlayerPrefab(newPlayer).GetComponent<NetworkObject>().Spawn();
+        Debug.Log("Ejecutando SpawnPlayers...");
+
+        /*foreach (Player player in joinedLobby.Players)
         {
             //EL PROBLEMA DEFINITIVAMENTE ESTA ACA!!!
             //UpdatePlayerPrefab(player);
             Instantiate(UpdatePlayerPrefab(player));
             UpdatePlayerPrefab(player).GetComponent<NetworkObject>().Spawn();
             Debug.Log("Ejecutando SpawnPlayers...");
-        }
+        }*/
     }
 
 
