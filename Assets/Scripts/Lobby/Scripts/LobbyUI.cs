@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Net;
+using System.Net.Sockets;
+using Unity.Netcode.Transports.UTP;
 
-public class LobbyUI : MonoBehaviour {
+public class LobbyUI : NetworkBehaviour {
 
 
     public static LobbyUI Instance { get; private set; }
@@ -14,6 +18,8 @@ public class LobbyUI : MonoBehaviour {
 
     [SerializeField] private Transform playerSingleTemplate;
     [SerializeField] private Transform container;
+    [SerializeField] private Transform canvas;
+    [SerializeField] private Transform prefabSelectionButtons;
     [SerializeField] private TextMeshProUGUI lobbyNameText;
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] private TextMeshProUGUI gameModeText;
@@ -22,11 +28,16 @@ public class LobbyUI : MonoBehaviour {
     [SerializeField] private Button changeZombieButton;
     [SerializeField] private Button leaveLobbyButton;
     [SerializeField] private Button changeGameModeButton;
+    [SerializeField] private Button startRelayButton;
     [SerializeField] private Button startGameButton;
+
+    public NetworkVariable<bool> canUseStartRelayAndChangeGameMode = new NetworkVariable<bool>(true);
+    public NetworkVariable<bool> canHideCanvas = new NetworkVariable<bool>(false);
 
 
     private void Awake()
     {
+
         Instance = this;
 
         playerSingleTemplate.gameObject.SetActive(false);
@@ -34,14 +45,20 @@ public class LobbyUI : MonoBehaviour {
         changeMarineButton.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1, LobbyManager.PlayerPrefab.Prefab1);
+            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 0);
+            ButtonSetPrefabPlayer(0);
         });
         changeNinjaButton.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2, LobbyManager.PlayerPrefab.Prefab2);
+            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 1);
+            ButtonSetPrefabPlayer(1);
         });
         changeZombieButton.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3, LobbyManager.PlayerPrefab.Prefab3);
+            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
+            ButtonSetPrefabPlayer(2);
         });
 
         leaveLobbyButton.onClick.AddListener(() =>
@@ -54,6 +71,11 @@ public class LobbyUI : MonoBehaviour {
             LobbyManager.Instance.ChangeGameMode();
         });
 
+        startRelayButton.onClick.AddListener(() =>
+        {
+            LobbyManager.Instance.StartRelay();
+        });
+
         startGameButton.onClick.AddListener(() =>
         {
             LobbyManager.Instance.StartGame();
@@ -62,7 +84,24 @@ public class LobbyUI : MonoBehaviour {
 
     }
 
+
+    private void NetworkSpawn()
+    {
+        if (canUseStartRelayAndChangeGameMode != null)
+        {
+            canUseStartRelayAndChangeGameMode.Value = true;
+        }
+
+        if (canHideCanvas != null)
+        {
+            canHideCanvas.Value = false;
+        }
+    }
+
 private void Start() {
+
+        NetworkSpawn();
+
         LobbyManager.Instance.OnJoinedLobby += UpdateLobby_Event;
         LobbyManager.Instance.OnJoinedLobbyUpdate += UpdateLobby_Event;
         LobbyManager.Instance.OnLobbyGameModeChanged += UpdateLobby_Event;
@@ -99,10 +138,45 @@ private void Start() {
             );
 
             lobbyPlayerSingleUI.UpdatePlayer(player);
+
         }
 
-        changeGameModeButton.gameObject.SetActive(LobbyManager.Instance.IsLobbyHost());
-        startGameButton.gameObject.SetActive(LobbyManager.Instance.IsLobbyHost());
+        if (canUseStartRelayAndChangeGameMode.Value)
+        {
+            if (LobbyManager.Instance.IsLobbyHost())
+            {
+                changeGameModeButton.gameObject.SetActive(true);
+                startRelayButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                changeGameModeButton.gameObject.SetActive(false);
+                startRelayButton.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+
+            if (LobbyManager.Instance.IsLobbyHost())
+            {
+                changeGameModeButton.gameObject.SetActive(false);
+                startRelayButton.gameObject.SetActive(false);
+                prefabSelectionButtons.gameObject.SetActive(true);
+            }
+            else
+            {
+                prefabSelectionButtons.gameObject.SetActive(true);
+                startGameButton.gameObject.SetActive(false);
+                changeGameModeButton.gameObject.SetActive(false);
+                startRelayButton.gameObject.SetActive(false);
+            }
+        }
+
+        if (canHideCanvas.Value)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+
 
         lobbyNameText.text = lobby.Name;
         playerCountText.text = lobby.Players.Count + "/" + lobby.MaxPlayers;
@@ -124,6 +198,22 @@ private void Start() {
 
     private void Show() {
         gameObject.SetActive(true);
+    }
+
+    public void ShowCharactersButton()
+    {
+        canUseStartRelayAndChangeGameMode.Value = false;
+    }
+
+    public void HideCanvas()
+    {
+        canHideCanvas.Value = true;
+    }
+
+
+    public void ButtonSetPrefabPlayer(int prefabID)
+    {
+        NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, prefabID);
     }
 
 }

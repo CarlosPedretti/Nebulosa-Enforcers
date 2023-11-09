@@ -13,7 +13,7 @@ using Unity.Networking.Transport.Relay;
 using Unity.Netcode.Transports.UTP;
 using static LobbyManager;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : NetworkBehaviour
 {
 
     Player player;
@@ -24,7 +24,7 @@ public class LobbyManager : MonoBehaviour
     public const string KEY_PLAYER_CHARACTER = "Character";
     public const string KEY_PLAYER_PREFAB = "PlayerPrefab";
     public const string KEY_GAME_MODE = "GameMode";
-    public const string KEY_START_GAME = "Start";
+    public const string KEY_START_RELAY = "StartRelay";
 
 
 
@@ -75,10 +75,24 @@ public class LobbyManager : MonoBehaviour
     private Lobby joinedLobby;
     private string playerName;
 
+    private int playersJoinedCount = 1;
+
+    public NetworkVariable<bool> hasGameStarted;
+
+
+    private void NetworkSpawn()
+    {
+        hasGameStarted.Value = false;
+    }
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        NetworkSpawn();
     }
 
     private void Update()
@@ -155,7 +169,6 @@ public class LobbyManager : MonoBehaviour
 
                 if (!IsPlayerInLobby())
                 {
-                    // Player was kicked out of this lobby
                     Debug.Log("Kicked from Lobby!");
 
                     OnKickedFromLobby?.Invoke(this, new LobbyEventArgs { lobby = joinedLobby });
@@ -163,27 +176,47 @@ public class LobbyManager : MonoBehaviour
                     joinedLobby = null;
                 }
 
-                if (joinedLobby.Data[KEY_START_GAME].Value != "0")
+
+                if (joinedLobby.Data[KEY_START_RELAY].Value != "0")
                 {
+
 
                     if (!IsLobbyHost())
                     {
-                        foreach (Player player in joinedLobby.Players)
+                        
+                        if (playersJoinedCount < joinedLobby.MaxPlayers)
                         {
-                            int playersJoinedCount = 1;
-                            if (!IsLobbyHost() && playersJoinedCount < joinedLobby.MaxPlayers)
-                            {
-                                RelayManager.Instance.JoinRelay(joinedLobby.Data[KEY_START_GAME].Value);
-                                Debug.Log("1 Player Joined to: " + joinedLobby.Data[KEY_START_GAME].Value);
 
-                                playersJoinedCount++;
-
-                                Debug.Log("playersJoinedCount: " + playersJoinedCount + " " + "joinedLobby.MaxPlayers: " + joinedLobby.MaxPlayers);
-
-                            }
+                            JoinRelay();
 
                         }
                     }
+
+                    /*if (playersJoinedCount == joinedLobby.MaxPlayers && hasGameStarted.Value)
+                    {
+                        SpawnPlayers();
+
+                        if (!spawnPlayerServerRpcCompleted)
+                        {
+                            //SpawnPlayerServerRpc();
+                            //spawnPlayerServerRpcCompleted = true;
+                        }
+
+                        if (IsLobbyHost())
+                        {
+                            if (!spawnPlayerServerRpcCompleted)
+                            {
+                                SpawnPlayerServerRpc();
+                                //spawnPlayerServerRpcCompleted = true;
+                            }
+
+
+
+                            //stopLobbyPolling.Value = true;
+                            Debug.Log("playersJoinedCount == joinedLobby.MaxPlayers && hasGameStarted");
+                        }
+
+                    }*/
 
                 }
 
@@ -193,6 +226,17 @@ public class LobbyManager : MonoBehaviour
             }
         }
     }
+
+    private void JoinRelay()
+    {
+        RelayManager.Instance.JoinRelay(joinedLobby.Data[KEY_START_RELAY].Value);
+        Debug.Log("1 Player Joined to: " + joinedLobby.Data[KEY_START_RELAY].Value);
+        Debug.Log("playersJoinedCount: " + playersJoinedCount + " " + "joinedLobby.MaxPlayers: " + joinedLobby.MaxPlayers);
+
+        playersJoinedCount++;
+
+    }
+
 
     public Lobby GetJoinedLobby()
     {
@@ -221,24 +265,11 @@ public class LobbyManager : MonoBehaviour
     }
 
 
-    public GameObject UpdatePlayerPrefab(Player player)
+    public int UpdatePlayerPrefab(Player player)
     {
-        /*if (IsLobbyHost())
-        {
-            PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
-            _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
-            return _playerPrefab;
-        }
-        else
-        {
-            PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
-            _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
-            return _playerPrefab;
-        }*/
 
         PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
-        _playerPrefab = LobbyAssets.Instance.GetPrefab(playerPrefab);
-        return _playerPrefab;
+        return (int)playerPrefab;
     }
 
 
@@ -283,7 +314,7 @@ public class LobbyManager : MonoBehaviour
             IsPrivate = isPrivate,
             Data = new Dictionary<string, DataObject> {
                 { KEY_GAME_MODE, new DataObject(DataObject.VisibilityOptions.Public, gameMode.ToString()) },
-                { KEY_START_GAME, new DataObject(DataObject.VisibilityOptions.Member, "0") }
+                { KEY_START_RELAY, new DataObject(DataObject.VisibilityOptions.Member, "0") }
             }
         };
 
@@ -491,28 +522,17 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership = false)] //server owns this object but client can request a spawn
-    public void SpawnPlayerServerRpc()
+    public void SpawnPlayers()
     {
-        
-        Player newPlayer = GetPlayer();
-
-        Instantiate(UpdatePlayerPrefab(newPlayer));
-        UpdatePlayerPrefab(newPlayer).GetComponent<NetworkObject>().Spawn();
-        Debug.Log("Ejecutando SpawnPlayers...");
-
-        /*foreach (Player player in joinedLobby.Players)
+        if (hasGameStarted.Value)
         {
-            //EL PROBLEMA DEFINITIVAMENTE ESTA ACA!!!
-            //UpdatePlayerPrefab(player);
-            Instantiate(UpdatePlayerPrefab(player));
-            UpdatePlayerPrefab(player).GetComponent<NetworkObject>().Spawn();
-            Debug.Log("Ejecutando SpawnPlayers...");
-        }*/
+            NetworkManager.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SpawnOtherPlayersServerRpc();
+
+            Debug.Log("SpawnPlayers LobbyManager EJECUTADO!");
+        }
     }
 
-
-    public async void StartGame()
+    public async void StartRelay()
     {
         if (IsLobbyHost())
         {
@@ -521,7 +541,7 @@ public class LobbyManager : MonoBehaviour
               if (IsLobbyHost())
               {
               
-                Debug.Log("StartGame");
+                Debug.Log("StartRelay");
 
                 string relayCode = await RelayManager.Instance.CreateRelay();
 
@@ -529,7 +549,7 @@ public class LobbyManager : MonoBehaviour
                 {
                     Data = new Dictionary<string, DataObject>
                     {
-                        { KEY_START_GAME, new DataObject(DataObject.VisibilityOptions.Member, relayCode) }
+                        { KEY_START_RELAY, new DataObject(DataObject.VisibilityOptions.Member, relayCode) }
                     }
 
                 });
@@ -543,7 +563,21 @@ public class LobbyManager : MonoBehaviour
                 Debug.Log(e);
             }
         }
+
+        LobbyUI.Instance.ShowCharactersButton();
     }
 
+    public void StartGame()
+    {
+            hasGameStarted.Value = true;
+            LobbyUI.Instance.HideCanvas();
+
+            if (hasGameStarted.Value)
+            {
+                SpawnPlayers();
+            }
+
+            Debug.Log("StartGame EJECUTADO!");
+    }
 
 }
