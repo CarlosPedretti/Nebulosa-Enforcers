@@ -10,8 +10,6 @@ public class Bullet : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkSpawn();
-
         GetComponent<Rigidbody2D>().velocity = this.transform.up * bulletSpeed;
     }
 

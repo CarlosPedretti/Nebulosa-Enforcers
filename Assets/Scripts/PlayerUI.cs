@@ -4,16 +4,25 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUI : NetworkBehaviour
 {
     [SerializeField] private TMP_Text health_Text;
+    [SerializeField] private GameObject canvasPlayer;
 
     void OnEnable()
     {
-        GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged += HealthChanged;
+       gameObject.GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged += HealthChanged;
+        health_Text.text =null;
     }
-
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+        {
+            canvasPlayer.SetActive(false);
+        }
+    }
     private void HealthChanged(int previousValue, int newValue)
     {
         health_Text.text = newValue.ToString();
@@ -21,20 +30,8 @@ public class PlayerUI : MonoBehaviour
 
     void OnDisable()
     {
-        GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged -= HealthChanged;
+        gameObject.GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged -= HealthChanged;
 
     }
-    
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-   
 }

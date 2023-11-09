@@ -37,7 +37,6 @@ public class Movement : NetworkBehaviour
 
         rb.AddForce(movement * speed);
 
-
         if (rb.velocity.magnitude > speed)
         {
             rb.velocity = rb.velocity.normalized * speed;

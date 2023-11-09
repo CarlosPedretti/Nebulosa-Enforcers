@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class Weapon : NetworkBehaviour
 {
     private PlayerInput playerInput;
-    private bool IsShooting;
+
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] List<Transform> firePoints = new List<Transform>();
+    [SerializeField] private float fireRate = 0.5f;
+    private float nextFireTime;
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -20,16 +22,16 @@ public class Weapon : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        if (playerInput.actions["Shoot"].IsPressed())
+        if (playerInput.actions["Shoot"].IsPressed() && Time.time >= nextFireTime)
         {
             foreach (Transform firePoint in firePoints)
             {
                 SpawnBulletServerRPC(firePoint.position, firePoint.rotation);
             }
 
-            Debug.Log("IsShooting: " + IsShooting);
-        }
+            nextFireTime = Time.time + fireRate;
 
+        }
     }
 
 
