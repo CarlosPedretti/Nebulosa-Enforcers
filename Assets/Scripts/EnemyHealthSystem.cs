@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using Unity.Netcode;
 
-public class EnemyHealthSystem : MonoBehaviour
+public class EnemyHealthSystem : NetworkBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int maxHealth;
+
+    private int currentHealth;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        if(!IsServer) return;
+
+        currentHealth -= damage;
+
+        if (currentHealth < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
