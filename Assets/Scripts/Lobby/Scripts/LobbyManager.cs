@@ -192,35 +192,7 @@ public class LobbyManager : NetworkBehaviour
                         }
                     }
 
-                    /*if (playersJoinedCount == joinedLobby.MaxPlayers && hasGameStarted.Value)
-                    {
-                        SpawnPlayers();
-
-                        if (!spawnPlayerServerRpcCompleted)
-                        {
-                            //SpawnPlayerServerRpc();
-                            //spawnPlayerServerRpcCompleted = true;
-                        }
-
-                        if (IsLobbyHost())
-                        {
-                            if (!spawnPlayerServerRpcCompleted)
-                            {
-                                SpawnPlayerServerRpc();
-                                //spawnPlayerServerRpcCompleted = true;
-                            }
-
-
-
-                            //stopLobbyPolling.Value = true;
-                            Debug.Log("playersJoinedCount == joinedLobby.MaxPlayers && hasGameStarted");
-                        }
-
-                    }*/
-
                 }
-
-                //joinedLobby = null;
 
                 OnGameStarted?.Invoke(this, EventArgs.Empty);
             }
