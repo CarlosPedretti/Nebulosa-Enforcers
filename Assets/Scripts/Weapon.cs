@@ -8,8 +8,8 @@ public class Weapon : NetworkBehaviour
 {
     private PlayerInput playerInput;
 
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] List<Transform> firePoints = new List<Transform>();
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private List<Transform> firePoints = new List<Transform>();
     [SerializeField] private float fireRate = 0.5f;
     private float nextFireTime;
     void Awake()
@@ -40,8 +40,9 @@ public class Weapon : NetworkBehaviour
     {
 
         {
-            GameObject instansiatedBullet = Instantiate(bulletPrefab, position, rotation);
-            instansiatedBullet.GetComponent<NetworkObject>().Spawn();
+            NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(bulletPrefab, position, rotation);
+            //GameObject instansiatedBullet = Instantiate(bulletPrefab, position, rotation);
+            if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
         }
 
 

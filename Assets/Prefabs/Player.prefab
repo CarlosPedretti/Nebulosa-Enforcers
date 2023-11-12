@@ -267,7 +267,7 @@ MonoBehaviour:
   firePoints:
   - {fileID: 4234326194192364726}
   - {fileID: 5682664228608945821}
-  fireRate: 0.5
+  fireRate: 0.15
 --- !u!114 &7183012720190930889
 MonoBehaviour:
   m_ObjectHideFlags: 0

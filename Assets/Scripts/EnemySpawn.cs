@@ -64,14 +64,9 @@ public class EnemySpawn : NetworkBehaviour
     private void SpawnEnemyServerRPC(int spawnSelected)
     {
         GameObject enemyToSpawn = RandomEnemy();
-        GameObject instansiatedEnemy = Instantiate(enemyToSpawn, spawns[spawnSelected].position, enemyToSpawn.transform.rotation);
-        instansiatedEnemy.GetComponent<NetworkObject>().Spawn();
-
+        NetworkObject instansiatedEnemy = NetworkObjectPool.Singleton.GetNetworkObject(enemyToSpawn, spawns[spawnSelected].position, enemyToSpawn.transform.rotation);
+        instansiatedEnemy.Spawn();
     }
-
-
-
-
 }
 [System.Serializable]
 public class EnemyClass

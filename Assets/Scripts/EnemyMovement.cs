@@ -34,12 +34,5 @@ public class EnemyMovement : NetworkBehaviour
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!IsServer) return;
-        if (collision.CompareTag("Player"))
-        {
-            collision.GetComponent<NetworkHealthSystem>().CurrentHealth.Value -= 1;
-        }
-    }
+    
 }

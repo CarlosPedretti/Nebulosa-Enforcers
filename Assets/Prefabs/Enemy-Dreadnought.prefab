@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 670279603434093948}
+  - component: {fileID: -7827578693811801428}
   - component: {fileID: 5713458627046155266}
   - component: {fileID: 4937548898644621819}
   - component: {fileID: -3129346642740950874}
@@ -39,6 +40,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &-7827578693811801428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476824446273973202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e669fc400c264429d9517da4df8508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTypeConfig: {fileID: 11400000, guid: 6d455a4dc7495fe4abca035cfcf17566, type: 2}
 --- !u!114 &5713458627046155266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2606af20de7d80743889424c5915cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 2
 --- !u!114 &-3129346642740950874
 MonoBehaviour:
   m_ObjectHideFlags: 0

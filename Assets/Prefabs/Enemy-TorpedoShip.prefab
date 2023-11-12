@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579326067351123946}
+  - component: {fileID: 8131223836781965388}
   - component: {fileID: 8936014895136932563}
   - component: {fileID: 2283990895488315929}
   - component: {fileID: 612495235905109888}
@@ -39,6 +40,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &8131223836781965388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460394979675766421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e669fc400c264429d9517da4df8508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTypeConfig: {fileID: 11400000, guid: c74969a2dc507f444970acc0e00492a7, type: 2}
 --- !u!114 &8936014895136932563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59b6c20b3584ab4cae12774be739174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 1
 --- !u!114 &2283990895488315929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2606af20de7d80743889424c5915cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 2
 --- !u!114 &612495235905109888
 MonoBehaviour:
   m_ObjectHideFlags: 0

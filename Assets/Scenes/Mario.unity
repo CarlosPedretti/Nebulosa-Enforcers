@@ -539,8 +539,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 462973955}
-  - component: {fileID: 462973954}
   - component: {fileID: 462973953}
+  - component: {fileID: 462973956}
   m_Layer: 0
   m_Name: NetworkObjectPoolManager
   m_TagString: Untagged
@@ -568,19 +568,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &462973954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462973952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f354f5d6863a24ab7a2c8eeca8e60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PooledPrefabsList: []
 --- !u!4 &462973955
 Transform:
   m_ObjectHideFlags: 0
@@ -596,6 +583,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &462973956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462973952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f354f5d6863a24ab7a2c8eeca8e60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledPrefabsList:
+  - Prefab: {fileID: 3918099896978445691, guid: 81fbe97767b810c4ea07e35f82914b32, type: 3}
+    PrewarmCount: 10
+  - Prefab: {fileID: 2131171908110707001, guid: b597b11cb5f94cd478d5638c2181ca08, type: 3}
+    PrewarmCount: 2
+  - Prefab: {fileID: 5287591197497180484, guid: 05f7b4ea9a075164ab1d18940c325808, type: 3}
+    PrewarmCount: 2
+  - Prefab: {fileID: 4460394979675766421, guid: 97db4af89e4469e4ea8fda2cc08c9b9d, type: 3}
+    PrewarmCount: 2
+  - Prefab: {fileID: 3747251937398373066, guid: 5f46f08357075224a860407ee82eccad, type: 3}
+    PrewarmCount: 2
+  - Prefab: {fileID: 8476824446273973202, guid: f622500f9a772cc48a2941987e9f8af7, type: 3}
+    PrewarmCount: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1081,7 @@ MonoBehaviour:
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
     Address: 127.0.0.1
-    Port: 7777
+    Port: 7779
     ServerListenAddress: 127.0.0.1
   DebugSimulator:
     PacketDelayMS: 0
