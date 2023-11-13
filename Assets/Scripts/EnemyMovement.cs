@@ -21,11 +21,15 @@ public class EnemyMovement : NetworkBehaviour
     {
         if (!IsServer) return;
 
+        CalculateMovement();
+    }
+
+    private void CalculateMovement()
+    {
         Vector2 movement = Vector2.down * speed * Time.fixedDeltaTime;
         movement += rb.position;
         MoveToPosition(movement);
     }
-
     private void MoveToPosition(Vector2 position)
     {
         rb.MovePosition(position);

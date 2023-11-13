@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy-TorpedoShipConfig
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 4460394979675766421, guid: 97db4af89e4469e4ea8fda2cc08c9b9d, type: 3}
   health: 0
   speed: 0

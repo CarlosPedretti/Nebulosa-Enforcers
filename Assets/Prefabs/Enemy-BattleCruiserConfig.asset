@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy-BattleCruiserConfig
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 3747251937398373066, guid: 5f46f08357075224a860407ee82eccad, type: 3}
   health: 0
   speed: 0

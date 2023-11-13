@@ -11,11 +11,11 @@ public class EnemyHealthSystem : NetworkBehaviour
 
     private int currentHealth;
 
-    private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyPrefab;
 
     void Start()
     {
-        enemyPrefab =gameObject.GetComponent<EnemyController>().EnemyTypeConfig.EnemyPrefab;
+        enemyPrefab = GetComponent<EnemyController>().EnemyTypeConfig.EnemyPrefab;
     }
     public override void OnNetworkSpawn()
     {

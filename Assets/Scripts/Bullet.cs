@@ -30,19 +30,19 @@ public class Bullet : NetworkBehaviour
         rb.velocity = transform.up * bulletSpeed;
 
     }
-    //void Update()
-    //{
-    //    if (!IsServer) return;
+    void Update()
+    {
+        if (!IsServer) return;
 
-    //    float screenHeight = Screen.height;
+        float screenHeight = Screen.height;
+        Debug.Log(Screen.height);
+        Vector3 position = transform.position;
 
-    //    Vector3 posicion = transform.position;
-
-    //    if (posicion.y > screenHeight || posicion.y < 0)
-    //    {
-    //        NetworkObjectPool.Singleton.ReturnNetworkObject(networkObject, bulletPrefab);
-    //    }
-    //}
+        if (position.y > screenHeight || position.y < 0)
+        {
+            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -50,7 +50,6 @@ public class Bullet : NetworkBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-            //Destroy(gameObject);
             NetworkObject.Despawn();
 
             NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
