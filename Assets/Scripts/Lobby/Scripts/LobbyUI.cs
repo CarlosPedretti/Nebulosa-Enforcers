@@ -23,9 +23,10 @@ public class LobbyUI : NetworkBehaviour {
     [SerializeField] private TextMeshProUGUI lobbyNameText;
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] private TextMeshProUGUI gameModeText;
-    [SerializeField] private Button changeMarineButton;
-    [SerializeField] private Button changeNinjaButton;
-    [SerializeField] private Button changeZombieButton;
+    [SerializeField] private Button changeP1_Button;
+    [SerializeField] private Button changeP2_Button;
+    [SerializeField] private Button changeP3_Button;
+    [SerializeField] private Button changeP4_Button;
     [SerializeField] private Button leaveLobbyButton;
     [SerializeField] private Button changeGameModeButton;
     [SerializeField] private Button startRelayButton;
@@ -42,23 +43,29 @@ public class LobbyUI : NetworkBehaviour {
 
         playerSingleTemplate.gameObject.SetActive(false);
 
-        changeMarineButton.onClick.AddListener(() =>
+        changeP1_Button.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1, LobbyManager.PlayerPrefab.Prefab1);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1);
             //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 0);
             ButtonSetPrefabPlayer(0);
         });
-        changeNinjaButton.onClick.AddListener(() =>
+        changeP2_Button.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2, LobbyManager.PlayerPrefab.Prefab2);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2);
             //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 1);
             ButtonSetPrefabPlayer(1);
         });
-        changeZombieButton.onClick.AddListener(() =>
+        changeP3_Button.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3, LobbyManager.PlayerPrefab.Prefab3);
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3);
             //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
             ButtonSetPrefabPlayer(2);
+        });
+        changeP4_Button.onClick.AddListener(() =>
+        {
+            LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset4);
+            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
+            ButtonSetPrefabPlayer(3);
         });
 
         leaveLobbyButton.onClick.AddListener(() =>
