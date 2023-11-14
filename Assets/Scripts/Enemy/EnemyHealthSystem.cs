@@ -31,7 +31,7 @@ public class EnemyHealthSystem : NetworkBehaviour
         if (currentHealth < 1)
         {
             //Destroy(gameObject);
-            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+            NetworkObjectPooll.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
         }
     }
 }

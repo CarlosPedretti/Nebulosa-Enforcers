@@ -15,4 +15,4 @@ MonoBehaviour:
   enemyName: 
   enemyPrefab: {fileID: 2131171908110707001, guid: b597b11cb5f94cd478d5638c2181ca08, type: 3}
   health: 0
-  speed: 0
+  speed: 2

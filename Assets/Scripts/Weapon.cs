@@ -40,7 +40,7 @@ public class Weapon : NetworkBehaviour
     {
 
         {
-            NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(bulletPrefab, position, rotation);
+            NetworkObject instansiatedBullet = NetworkObjectPooll.Singleton.GetNetworkObject(bulletPrefab, position, rotation);
             //GameObject instansiatedBullet = Instantiate(bulletPrefab, position, rotation);
             if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
         }

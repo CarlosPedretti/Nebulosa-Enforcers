@@ -11,9 +11,9 @@ using UnityEngine.Assertions;
 /// objects. With this Networked Pool, we're using custom spawning to reuse objects.
 /// Hooks to NetworkManager's prefab handler to intercept object spawning and do custom actions
 /// </summary>
-public class NetworkObjectPool : NetworkBehaviour
+public class NetworkObjectPooll : NetworkBehaviour
 {
-    public static NetworkObjectPool Singleton { get; private set; }
+    public static NetworkObjectPooll Singleton { get; private set; }
 
     [SerializeField]
     List<PoolConfigObject> PooledPrefabsList;
@@ -66,7 +66,7 @@ public class NetworkObjectPool : NetworkBehaviour
             {
                 Assert.IsNotNull(
                     prefab.GetComponent<NetworkObject>(),
-                    $"{nameof(NetworkObjectPool)}: Pooled prefab \"{prefab.name}\" at index {i.ToString()} has no {nameof(NetworkObject)} component."
+                    $"{nameof(NetworkObjectPooll)}: Pooled prefab \"{prefab.name}\" at index {i.ToString()} has no {nameof(NetworkObject)} component."
                 );
 
             }
@@ -74,7 +74,7 @@ public class NetworkObjectPool : NetworkBehaviour
             var prewarmCount = PooledPrefabsList[i].PrewarmCount;
             if (prewarmCount < 0)
             {
-                Debug.LogWarning($"{nameof(NetworkObjectPool)}: Pooled prefab at index {i.ToString()} has a negative prewarm count! Making it not negative.");
+                Debug.LogWarning($"{nameof(NetworkObjectPooll)}: Pooled prefab at index {i.ToString()} has a negative prewarm count! Making it not negative.");
                 var thisPooledPrefab = PooledPrefabsList[i];
                 thisPooledPrefab.PrewarmCount *= -1;
                 PooledPrefabsList[i] = thisPooledPrefab;
@@ -224,9 +224,9 @@ struct PoolConfigObject
 class PooledPrefabInstanceHandler : INetworkPrefabInstanceHandler
 {
     GameObject m_Prefab;
-    NetworkObjectPool m_Pool;
+    NetworkObjectPooll m_Pool;
 
-    public PooledPrefabInstanceHandler(GameObject prefab, NetworkObjectPool pool)
+    public PooledPrefabInstanceHandler(GameObject prefab, NetworkObjectPooll pool)
     {
         m_Prefab = prefab;
         m_Pool = pool;

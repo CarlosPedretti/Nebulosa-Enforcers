@@ -22,6 +22,17 @@ public class NetworkHealthSystem : NetworkBehaviour
     {
         if(IsServer) CurrentHealth.Value = maxHealth;
     }
+    private void Update()
+    {
+        //if(!IsServer)
+    }
+
+
+    [ClientRpc]
+    private void OnGameoverClientRPC()
+    {
+
+    }
 
 }
 

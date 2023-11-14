@@ -3,25 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
-
-
-
-//
-
-//void Start()
-//{
-
-
-//}
-
-
-
-
-
-
-public class NetworkObjectPoolM : NetworkBehaviour
+public class NetworkObjectPool : NetworkBehaviour
 {
-    public static NetworkObjectPoolM Singleton { get; private set; }
+    public static NetworkObjectPool Singleton { get; private set; }
 
     Dictionary<int, List<GameObject>> poolDictionary = new Dictionary<int, List<GameObject>>();
 
@@ -43,11 +27,6 @@ public class NetworkObjectPoolM : NetworkBehaviour
     {
         InitializePool();
     }
-
-    //public override void OnNetworkDespawn()
-    //{
-    //    ClearPool();
-    //}
 
     public override void OnDestroy()
     {

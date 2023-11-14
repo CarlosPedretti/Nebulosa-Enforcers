@@ -250,7 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   drag: 6.5
-  rb: {fileID: 1296038089523390256}
+  maxTiltAngle: 300
+  tiltSpeed: 5
 --- !u!114 &-1720499430520878140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
+  GlobalObjectIdHash: 1822278504
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
