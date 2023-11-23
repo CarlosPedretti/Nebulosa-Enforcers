@@ -57,14 +57,8 @@ public class LobbyManager : NetworkBehaviour
     {
         Asset1,
         Asset2,
-        Asset3
-    }
-
-    public enum PlayerPrefab
-    {
-        Prefab1,
-        Prefab2,
-        Prefab3
+        Asset3,
+        Asset4
     }
 
     private GameObject _playerPrefab;
@@ -237,20 +231,12 @@ public class LobbyManager : NetworkBehaviour
     }
 
 
-    public int UpdatePlayerPrefab(Player player)
-    {
-
-        PlayerPrefab playerPrefab = System.Enum.Parse<PlayerPrefab>(player.Data[KEY_PLAYER_PREFAB].Value);
-        return (int)playerPrefab;
-    }
-
 
     public Player GetPlayer()
     {
         return new Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject> {
             { KEY_PLAYER_NAME, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, playerName) },
-            { KEY_PLAYER_CHARACTER, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, PlayerCharacter.Asset1.ToString())},
-            { KEY_PLAYER_PREFAB, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, PlayerPrefab.Prefab1.ToString())}
+            { KEY_PLAYER_CHARACTER, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, PlayerCharacter.Asset1.ToString())}
         });
     }
 
@@ -389,7 +375,7 @@ public class LobbyManager : NetworkBehaviour
         }
     }
 
-    public async void UpdatePlayerCharacter(PlayerCharacter playerCharacter, PlayerPrefab playerPrefab)
+    public async void UpdatePlayerCharacter(PlayerCharacter playerCharacter)
     {
         if (joinedLobby != null)
         {
@@ -400,8 +386,6 @@ public class LobbyManager : NetworkBehaviour
                 options.Data = new Dictionary<string, PlayerDataObject>() {
 
                   {KEY_PLAYER_CHARACTER, new PlayerDataObject(visibility: PlayerDataObject.VisibilityOptions.Public, value: playerCharacter.ToString())},
-
-                  {KEY_PLAYER_PREFAB, new PlayerDataObject(visibility: PlayerDataObject.VisibilityOptions.Public, value: playerPrefab.ToString())}
 
                 };
 
