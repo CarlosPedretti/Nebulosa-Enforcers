@@ -23,16 +23,14 @@ public class Movement : NetworkBehaviour
     void FixedUpdate()
     {
 
-        moveDirection = playerInput.actions["Movement"].ReadValue<Vector2>();
-        //float inputY = Input.GetAxis("Vertical");
-        //float inputX = Input.GetAxis("Horizontal");
-
         Move(moveDirection);
 
     }
 
     public void Move(Vector2 moveDirection)
     {
+        moveDirection = playerInput.actions["Movement"].ReadValue<Vector2>();
+
         Vector2 movement = new Vector2(speed * moveDirection.x, speed * moveDirection.y);
 
         rb.AddForce(movement * speed);
