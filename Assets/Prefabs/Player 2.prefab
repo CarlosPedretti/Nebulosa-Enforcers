@@ -100,6 +100,9 @@ GameObject:
   - component: {fileID: 6043732211629023934}
   - component: {fileID: 583757870542415534}
   - component: {fileID: 8534011828573732255}
+  - component: {fileID: 3877647329114058128}
+  - component: {fileID: 104331622761437495}
+  - component: {fileID: -6123613963829693498}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -326,3 +329,55 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerController
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3877647329114058128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802168796325428650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d31a366118e66499d15494defc060d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  rocketPrefab: {fileID: 0}
+  firePoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  firePointsAvaible: []
+  canUseRockets: 0
+  rocketPoints: []
+  rocketPointsAvaible: []
+  fireRate: 0.5
+  rocketFireRate: 0.9
+--- !u!114 &104331622761437495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802168796325428650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc3534795c19304287126bf0aa676e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health_Text: {fileID: 0}
+  canvasPlayer: {fileID: 0}
+--- !u!114 &-6123613963829693498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802168796325428650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14376bfe8ce86704fbb7c66d309d771c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  CurrentHealth:
+    m_InternalValue: 0

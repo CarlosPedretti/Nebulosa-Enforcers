@@ -23,5 +23,10 @@ public class NetworkHealthSystem : NetworkBehaviour
         if(IsServer) CurrentHealth.Value = maxHealth;
     }
 
+    public void Heal(int healAmount)
+    {
+        CurrentHealth.Value += healAmount;
+    }
+
 }
 

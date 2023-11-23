@@ -8,16 +8,29 @@ public class Weapon : NetworkBehaviour
 {
     private PlayerInput playerInput;
 
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private List<Transform> firePoints = new List<Transform>();
-    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public GameObject rocketPrefab;
+
+    [SerializeField] public List<Transform> firePoints = new List<Transform>();
+    [SerializeField] public List<Transform> firePointsAvaible = new List<Transform>();
+
+    [SerializeField] public bool canUseRockets;
+
+    [SerializeField] public List<Transform> rocketPoints = new List<Transform>();
+    [SerializeField] public List<Transform> rocketPointsAvaible = new List<Transform>();
+
+    [SerializeField] public float fireRate = 0.5f;
+    [SerializeField] public float rocketFireRate = 0.9f;
+
+
     private float nextFireTime;
+    private float nextRocketTime;
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!IsOwner) return;
@@ -32,19 +45,34 @@ public class Weapon : NetworkBehaviour
             nextFireTime = Time.time + fireRate;
 
         }
+
+        if (playerInput.actions["Rocket"].IsPressed() && Time.time >= nextRocketTime && canUseRockets)
+        {
+            foreach (Transform rocketPoint in rocketPoints)
+            {
+                SpawnRocketServerRPC(rocketPoint.position, rocketPoint.rotation);
+            }
+
+            nextRocketTime = Time.time + rocketFireRate;
+        }
     }
 
 
     [ServerRpc]
     private void SpawnBulletServerRPC(Vector3 position, Quaternion rotation)
     {
-
         {
             NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(bulletPrefab, position, rotation);
-            //GameObject instansiatedBullet = Instantiate(bulletPrefab, position, rotation);
             if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
         }
+    }
 
-
+    [ServerRpc]
+    private void SpawnRocketServerRPC(Vector3 position, Quaternion rotation)
+    {
+        {
+            NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(rocketPrefab, position, rotation);
+            if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
+        }
     }
 }
