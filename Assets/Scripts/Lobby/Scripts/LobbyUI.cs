@@ -32,8 +32,9 @@ public class LobbyUI : NetworkBehaviour {
     [SerializeField] private Button startRelayButton;
     [SerializeField] private Button startGameButton;
 
-    public NetworkVariable<bool> canUseStartRelayAndChangeGameMode = new NetworkVariable<bool>(true);
-    public NetworkVariable<bool> canHideCanvas = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> canUseStartRelayAndChangeGameMode = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> canHideCanvas = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
 
 
     private void Awake()

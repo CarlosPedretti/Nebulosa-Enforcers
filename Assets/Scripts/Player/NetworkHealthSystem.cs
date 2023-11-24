@@ -6,8 +6,7 @@ using Unity.Netcode;
 public class NetworkHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth = 3;
-    public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>(default,
-    NetworkVariableReadPermission.Owner, NetworkVariableWritePermission.Server);
+    public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>(default, NetworkVariableReadPermission.Owner, NetworkVariableWritePermission.Server);
 
     //[SerializeField] private PlayerHealthBar HealthBar;
 

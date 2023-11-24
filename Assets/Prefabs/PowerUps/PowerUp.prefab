@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 297464575610506196}
   - component: {fileID: 7247515314550235321}
   - component: {fileID: 1272636177058229846}
+  - component: {fileID: 1624655751359725503}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Untagged
@@ -99,13 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpData: {fileID: 11400000, guid: f63b4f757988b1b4bb292f39bf3da039, type: 2}
-  originalBulletPrefab: {fileID: 0}
-  originalRocketPrefab: {fileID: 0}
-  originalFireRate: 0
-  originalRocketFireRate: 0
-  originalFirePoints: []
-  originalRocketPoints: []
-  originalCanUseRockets: 0
+  weaponOriginalValues:
+    bulletPrefab: {fileID: 0}
+    fireRate: 0
+    firePoints: []
+    canUseRockets: 0
+    rocketPrefab: {fileID: 0}
+    rocketFireRate: 0
+    rocketPoints: []
 --- !u!114 &1272636177058229846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +128,48 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!61 &1624655751359725503
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696672887740888345}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
