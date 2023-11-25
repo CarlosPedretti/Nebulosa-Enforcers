@@ -6,33 +6,37 @@ using Unity.Netcode;
 public class NetworkHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] private GameObject gameover_Panel;
     public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>(default,
     NetworkVariableReadPermission.Owner, NetworkVariableWritePermission.Server);
-
-    //[SerializeField] private PlayerHealthBar HealthBar;
-
-    //public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
-    //public int CurrentHealth { get { return currentHealth; } set { currentHealth = value; } }
-
-    //public static Action<DamageType, float> OnDamage;
-    //public static Action Gameover;
-
-
+        
     private void Start()
     {
-        if(IsServer) CurrentHealth.Value = maxHealth;
-    }
-    private void Update()
-    {
-        //if(!IsServer)
-    }
+        gameObject.GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged += HealthChanged;
 
+        if (IsServer) CurrentHealth.Value = maxHealth;
+    }
+   
+    private void HealthChanged(int previousValue, int newValue)
+    {
+        if (!IsServer) return;
+
+        if (newValue <= 0)
+        {
+            NetworkObject.Despawn();
+            OnGameoverClientRPC();
+        }
+
+    }
 
     [ClientRpc]
     private void OnGameoverClientRPC()
     {
-
+        gameover_Panel.SetActive(true);        
+        gameObject.SetActive(false);        
     }
-
+    private void OnDisable()
+    {
+        gameObject.GetComponent<NetworkHealthSystem>().CurrentHealth.OnValueChanged -= HealthChanged;
+    }
 }
-

@@ -18,7 +18,7 @@ public class GameManager : NetworkBehaviour
 
 
 
-    [ClientRpc]
+    //[ClientRpc]
    // private void 
 
 }
