@@ -44,6 +44,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rocket"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5b9ff7f-ccc6-4645-a3dd-a85ff72786d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61611005-10bc-42ef-9c8e-280daf17f1de"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
         m_PlayerController_Movement = m_PlayerController.FindAction("Movement", throwIfNotFound: true);
         m_PlayerController_Shoot = m_PlayerController.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerController_Rocket = m_PlayerController.FindAction("Rocket", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +206,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerControllerActions> m_PlayerControllerActionsCallbackInterfaces = new List<IPlayerControllerActions>();
     private readonly InputAction m_PlayerController_Movement;
     private readonly InputAction m_PlayerController_Shoot;
+    private readonly InputAction m_PlayerController_Rocket;
     public struct PlayerControllerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerControllerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerController_Movement;
         public InputAction @Shoot => m_Wrapper.m_PlayerController_Shoot;
+        public InputAction @Rocket => m_Wrapper.m_PlayerController_Rocket;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +229,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Rocket.started += instance.OnRocket;
+            @Rocket.performed += instance.OnRocket;
+            @Rocket.canceled += instance.OnRocket;
         }
 
         private void UnregisterCallbacks(IPlayerControllerActions instance)
@@ -216,6 +242,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Rocket.started -= instance.OnRocket;
+            @Rocket.performed -= instance.OnRocket;
+            @Rocket.canceled -= instance.OnRocket;
         }
 
         public void RemoveCallbacks(IPlayerControllerActions instance)
@@ -237,5 +266,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnRocket(InputAction.CallbackContext context);
     }
 }
