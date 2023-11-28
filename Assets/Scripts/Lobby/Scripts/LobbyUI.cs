@@ -47,25 +47,21 @@ public class LobbyUI : NetworkBehaviour {
         changeP1_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 0);
             ButtonSetPrefabPlayer(0);
         });
         changeP2_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 1);
             ButtonSetPrefabPlayer(1);
         });
         changeP3_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
             ButtonSetPrefabPlayer(2);
         });
         changeP4_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset4);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
             ButtonSetPrefabPlayer(3);
         });
 
