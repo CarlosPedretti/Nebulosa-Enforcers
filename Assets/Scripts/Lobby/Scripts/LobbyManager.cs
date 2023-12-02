@@ -526,7 +526,7 @@ public class LobbyManager : NetworkBehaviour
     public void StartGame()
     {
             hasGameStarted.Value = true;
-            LobbyUI.Instance.HideCanvas();
+            //LobbyUI.Instance.HideCanvas();
 
             if (hasGameStarted.Value)
             {
