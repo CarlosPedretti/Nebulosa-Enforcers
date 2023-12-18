@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
-public class NetworkObjectPool : NetworkBehaviour
+public class NetworkObjectPoolM : NetworkBehaviour
 {
-    public static NetworkObjectPool Singleton { get; private set; }
+    public static NetworkObjectPoolM Singleton { get; private set; }
 
     Dictionary<int, List<GameObject>> poolDictionary = new Dictionary<int, List<GameObject>>();
 

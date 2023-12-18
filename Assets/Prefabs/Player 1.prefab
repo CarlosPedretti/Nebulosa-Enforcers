@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6898416486045777117}
   - component: {fileID: 8724026847600765655}
-  - component: {fileID: 5730101523965509949}
+  - component: {fileID: 9087688510220405977}
   - component: {fileID: 156361500000711893}
   - component: {fileID: 6102545264264872279}
   - component: {fileID: 1296038089523390256}
@@ -379,8 +379,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   drag: 6.5
-  rb: {fileID: 1296038089523390256}
---- !u!114 &5730101523965509949
+  maxTiltAngle: 30
+  tiltSpeed: 5
+--- !u!114 &9087688510220405977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -389,25 +390,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7802168796325428650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d31a366118e66499d15494defc060d, type: 3}
+  m_Script: {fileID: 11500000, guid: fd2af761d1e6be94c8189cd109654d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3918099896978445691, guid: 81fbe97767b810c4ea07e35f82914b32, type: 3}
-  rocketPrefab: {fileID: 3918099896978445691, guid: b5a6ce8467b261b41b83cd0f7abe7826, type: 3}
+  rocketPrefab: {fileID: 2258211804484450964, guid: 578fff38ce6ab6f4fb851d31b5ccc0f4, type: 3}
   firePoints:
   - {fileID: 4276657156123747808}
-  - {fileID: 910898376523612462}
   firePointsAvaible:
-  - {fileID: 4276657156123747808}
   - {fileID: 910898376523612462}
   - {fileID: 2137636035559667916}
   canUseRockets: 0
   rocketPoints:
   - {fileID: 1521864399869982764}
   - {fileID: 1195246263440786754}
-  rocketPointsAvaible:
-  - {fileID: 1521864399869982764}
-  - {fileID: 1195246263440786754}
+  rocketPointsAvaible: []
   fireRate: 0.5
   rocketFireRate: 0.9
 --- !u!114 &156361500000711893

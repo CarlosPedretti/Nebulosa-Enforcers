@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -1340663034484041085}
   - component: {fileID: 2206162081157211028}
   m_Layer: 7
-  m_Name: Rocket
+  m_Name: Misile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

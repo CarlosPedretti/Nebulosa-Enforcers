@@ -12,6 +12,7 @@ public class EnemyHealthSystem : NetworkBehaviour
     private int currentHealth;
 
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject explosion_ParticleSys;
 
     void Start()
     {
@@ -30,8 +31,11 @@ public class EnemyHealthSystem : NetworkBehaviour
 
         if (currentHealth < 1)
         {
-            //Destroy(gameObject);
-            NetworkObjectPooll.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+            GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
+            explosionInstantiated.GetComponent<NetworkObject>().Spawn();
+
+            NetworkObject.Despawn();
+            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
         }
     }
 }

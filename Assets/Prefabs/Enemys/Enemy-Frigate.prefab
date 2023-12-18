@@ -37,7 +37,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8257009513502626741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &-7044979230474698604
@@ -65,10 +66,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d86228f1ce83a4db5211ee1b390efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletConfig: {fileID: 0}
   speed: 1
   amplitude: 1.05
   period: 0.64
   shift: 0.01
+  yChange: 0
 --- !u!114 &5456245609806103561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   enemyPrefab: {fileID: 0}
+  explosion_ParticleSys: {fileID: 6291563028146478861, guid: a2544db116862374383c431d69bd5a55, type: 3}
 --- !u!114 &5617583369888688294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +216,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 260612966454278428, guid: dcb3329dadfc0674d881738040c2671b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -279,3 +283,65 @@ PolygonCollider2D:
       - {x: 0.94, y: 0.43}
       - {x: 0.16, y: 0.8}
   m_UseDelaunayMesh: 0
+--- !u!1001 &9043545120385539713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3013489872207800508}
+    m_Modifications:
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304472502315471073, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+      propertyPath: m_Name
+      value: Nautolan Ship - Frigate - Engine Effect_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+--- !u!4 &8257009513502626741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1087595365124033844, guid: e7a0e30b19caab74bbf873a9fd8f7829, type: 3}
+  m_PrefabInstance: {fileID: 9043545120385539713}
+  m_PrefabAsset: {fileID: 0}

@@ -14,25 +14,21 @@ public class EnemySpawn : NetworkBehaviour
     private float nextSpawnTime;
     private int playerCount;
 
-    //public override void OnNetworkSpawn()
+    //private void Start()
     //{
-    //    if (!IsServer) return;
-
+    //    if (IsServer)
+    //    {
+    //        // Obtener la cantidad de clientes conectados en el servidor
+    //        playerCount = NetworkManager.ConnectedClientsList.Count;
+    //    }
     //}
-    private void Start()
-    {
-        if (IsServer)
-        {
-            // Obtener la cantidad de clientes conectados en el servidor
-            playerCount = NetworkManager.ConnectedClientsList.Count;
-        }
-    }
     private void Update()
     {
         if (!IsServer) return;
-        playerCount = NetworkManager.ConnectedClientsList.Count;//borrar cuando se junte con el lobby
+        //playerCount = NetworkManager.ConnectedClientsList.Count;//borrar cuando se junte con el lobby
+        //if (Time.time >= nextSpawnTime * (1 / playerCount))
 
-        if (Time.time >= nextSpawnTime * (1 / playerCount))
+        if (Time.time >= nextSpawnTime)
         {
             int spawnSelected = Random.Range(0, spawns.Length - 1);
             SpawnEnemyServerRPC(spawnSelected);
@@ -73,7 +69,7 @@ public class EnemySpawn : NetworkBehaviour
     private void SpawnEnemyServerRPC(int spawnSelected)
     {
         GameObject enemyToSpawn = RandomEnemy();
-        NetworkObject instansiatedEnemy = NetworkObjectPooll.Singleton.GetNetworkObject(enemyToSpawn, spawns[spawnSelected].position, enemyToSpawn.transform.rotation);
+        NetworkObject instansiatedEnemy = NetworkObjectPool.Singleton.GetNetworkObject(enemyToSpawn, spawns[spawnSelected].position, enemyToSpawn.transform.rotation);
         instansiatedEnemy.Spawn();
     }
 }

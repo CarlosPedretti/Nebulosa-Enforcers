@@ -44,7 +44,7 @@ public class Bullet : NetworkBehaviour, IProjectile
         if (!IsServer) return;
 
         NetworkObject.Despawn();
-        NetworkObjectPooll.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
+        NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
 
     }
 

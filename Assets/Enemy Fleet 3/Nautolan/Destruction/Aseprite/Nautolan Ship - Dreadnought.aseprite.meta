@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 25
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638384392968082054
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Nautolan Ship - Dreadnought_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -141,7 +141,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Nautolan Ship - Dreadnought_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -161,7 +161,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 109}
   - name: Nautolan Ship - Dreadnought_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -181,7 +181,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 214}
   - name: Nautolan Ship - Dreadnought_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -201,7 +201,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 319}
   - name: Nautolan Ship - Dreadnought_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -221,7 +221,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 4}
   - name: Nautolan Ship - Dreadnought_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: -0.12371133}
+    pivot: {x: 0.5, y: 0.53608245}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -241,7 +241,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 109}
   - name: Nautolan Ship - Dreadnought_Frame_6
     originalName: 
-    pivot: {x: 0.53061223, y: -0.20224719}
+    pivot: {x: 0.53061223, y: 0.5168539}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -261,7 +261,7 @@ ScriptedImporter:
     uvTransform: {x: 164, y: 203}
   - name: Nautolan Ship - Dreadnought_Frame_7
     originalName: 
-    pivot: {x: 0.4827586, y: -0.16842106}
+    pivot: {x: 0.4827586, y: 0.5052632}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -281,7 +281,7 @@ ScriptedImporter:
     uvTransform: {x: 164, y: 100}
   - name: Nautolan Ship - Dreadnought_Frame_8
     originalName: 
-    pivot: {x: 0.4848485, y: -0.121212125}
+    pivot: {x: 0.4848485, y: 0.5252525}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -301,7 +301,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 214}
   - name: Nautolan Ship - Dreadnought_Frame_9
     originalName: 
-    pivot: {x: 0.4848485, y: -0.114583336}
+    pivot: {x: 0.4848485, y: 0.5520834}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -321,7 +321,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 321}
   - name: Nautolan Ship - Dreadnought_Frame_10
     originalName: 
-    pivot: {x: 0.4848485, y: -0.14772728}
+    pivot: {x: 0.4848485, y: 0.5795455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -341,7 +341,7 @@ ScriptedImporter:
     uvTransform: {x: 164, y: 4}
   - name: Nautolan Ship - Dreadnought_Frame_11
     originalName: 
-    pivot: {x: 0.54545456, y: -0.21538462}
+    pivot: {x: 0.54545456, y: 0.7692308}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -466,7 +466,43 @@ ScriptedImporter:
       spriteId: fe226749f0bc6f6459944a5df506fe38
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
