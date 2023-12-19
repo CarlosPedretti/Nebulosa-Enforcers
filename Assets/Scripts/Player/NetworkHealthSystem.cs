@@ -28,7 +28,10 @@ public class NetworkHealthSystem : NetworkBehaviour
         {
             GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
             explosionInstantiated.GetComponent<NetworkObject>().Spawn();
-            gameObject.SetActive(false);
+            if (IsServer)
+            {
+                DespawnPlayerServerRpc();
+            }
         }
     }
 
@@ -42,4 +45,22 @@ public class NetworkHealthSystem : NetworkBehaviour
         CurrentHealth.OnValueChanged -= OnHealthChanged;
 
     }
+
+
+    [ServerRpc]
+    private void DespawnPlayerServerRpc()
+    {
+        DespawnPlayerClientRpc();
+    }
+
+    [ClientRpc]
+    private void DespawnPlayerClientRpc()
+    {
+        SpriteRenderer powerUpSprite = GetComponent<SpriteRenderer>();
+        powerUpSprite.enabled = false;
+
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+    }
+
 }
