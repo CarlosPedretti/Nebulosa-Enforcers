@@ -7,6 +7,7 @@ public class PowerUpData : ScriptableObject
 {
 
     public float powerUpDuration;
+    public GameObject powerUp;
 
     [Header("Bullet Config")]
     [Space(15)]

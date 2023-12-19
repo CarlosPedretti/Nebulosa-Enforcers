@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: BattleCruiser
   enemyPrefab: {fileID: 3747251937398373066, guid: 5f46f08357075224a860407ee82eccad, type: 3}
-  health: 6
+  health: 20
   speed: 3

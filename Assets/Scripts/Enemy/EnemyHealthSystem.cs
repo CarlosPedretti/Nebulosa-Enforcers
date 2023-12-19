@@ -21,7 +21,10 @@ public class EnemyHealthSystem : NetworkBehaviour
     void Start()
     {
         enemyPrefab = GetComponent<EnemyController>().EnemyTypeConfig.EnemyPrefab;
+        maxHealth = GetComponent<EnemyController>().EnemyTypeConfig.Health;
+        currentHealth = maxHealth;
     }
+
     public override void OnNetworkSpawn()
     {
         currentHealth = maxHealth;

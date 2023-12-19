@@ -48,7 +48,6 @@ public class Movement : NetworkBehaviour
     private void TiltAngle(Vector2 moveDirection)
     {
         float tiltAngle = -moveDirection.x * maxTiltAngle;
-        Debug.Log(moveDirection.x);
         float currentTilt = Mathf.Lerp(transform.rotation.y, tiltAngle, Time.fixedDeltaTime * tiltSpeed);
 
         transform.rotation = Quaternion.Euler(0, currentTilt, 0);

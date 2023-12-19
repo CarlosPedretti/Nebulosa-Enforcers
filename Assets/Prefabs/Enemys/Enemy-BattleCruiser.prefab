@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  pointsForKilling: 5
+  pointsForKilling: 20
   explosion_ParticleSys: {fileID: 5924611517396676044, guid: 04ee31f680e49674092960f43fbdd8f7, type: 3}
 --- !u!114 &7515629170203199211
 MonoBehaviour:

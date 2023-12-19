@@ -56,7 +56,9 @@ MonoBehaviour:
   speed: 5
   rotacionSpeed: 200
   explosionRadius: 5
-  damage: 2
+  damage: 3
+  currentPlayerBullet:
+    m_InternalValue: 0
 --- !u!212 &2568192171471484118
 SpriteRenderer:
   m_ObjectHideFlags: 0

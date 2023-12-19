@@ -24,19 +24,22 @@ public class EnemySpawn : NetworkBehaviour
     //}
     private void Update()
     {
-        if (!IsServer) return;
-        //playerCount = NetworkManager.ConnectedClientsList.Count;//borrar cuando se junte con el lobby
-        //if (Time.time >= nextSpawnTime * (1 / playerCount))
-
-        if (Time.time >= nextSpawnTime)
+        if (LobbyManager.Instance.hasGameStarted.Value)
         {
-            int spawnSelected = Random.Range(0, spawns.Length - 1);
-            SpawnEnemyServerRPC(spawnSelected);
+            if (!IsServer) return;
+            //playerCount = NetworkManager.ConnectedClientsList.Count;//borrar cuando se junte con el lobby
+            //if (Time.time >= nextSpawnTime * (1 / playerCount))
 
-            spawnRate -= timeIncrementRatio;
-            spawnRate = Mathf.Max(spawnRate, minSpawnRate);
+            if (Time.time >= nextSpawnTime)
+            {
+                int spawnSelected = Random.Range(0, spawns.Length - 1);
+                SpawnEnemyServerRPC(spawnSelected);
 
-            nextSpawnTime = Time.time + spawnRate;
+                spawnRate -= timeIncrementRatio;
+                spawnRate = Mathf.Max(spawnRate, minSpawnRate);
+                nextSpawnTime = Time.time + spawnRate;
+
+            }
         }
     }
 

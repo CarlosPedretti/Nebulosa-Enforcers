@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dc63738817d6e48a605587df7f8dd2, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: 
+  powerUpDuration: 5
+  powerUp: {fileID: 6718661293348875909, guid: 161c76267a84eb04ab613ea16d762a0d, type: 3}
+  useDefaultFirePoint: 1
+  bulletPrefab: {fileID: 3918099896978445691, guid: 81fbe97767b810c4ea07e35f82914b32, type: 3}
+  fireRate: 0.12
+  firePointIndices: 000000000100000002000000
+  canHeal: 1
+  quantityOfHeal: 1
+  canUseRockets: 0
+  rocketPrefab: {fileID: 3918099896978445691, guid: 9d20684eadc0af04992141d496bd0418, type: 3}
+  rocketFireRate: 0.2
+  rocketPointsIndices: 0000000001000000

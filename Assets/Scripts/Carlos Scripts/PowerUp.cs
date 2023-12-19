@@ -8,17 +8,30 @@ public class PowerUp : NetworkBehaviour
 
     [SerializeField] private PowerUpData powerUpData;
 
-    [SerializeField] private GameObject originalBulletPrefab;
-    [SerializeField] private GameObject originalRocketPrefab;
+     private GameObject originalBulletPrefab;
+     private GameObject originalRocketPrefab;
 
-    [SerializeField] private float originalFireRate;
-    [SerializeField] private float originalRocketFireRate;
+     private float originalFireRate;
+     private float originalRocketFireRate;
 
-    [SerializeField] private List<Transform> originalFirePoints = new List<Transform>();
-    [SerializeField] private List<Transform> originalRocketPoints = new List<Transform>();
+     private List<Transform> originalFirePoints = new List<Transform>();
+     private List<Transform> originalRocketPoints = new List<Transform>();
 
-    [SerializeField] private bool originalCanUseRockets;
+     private bool originalCanUseRockets;
 
+
+    private void Update()
+    {
+        if (IsServer)
+        {
+            float yBottom = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).y;
+
+            if (transform.position.y <= yBottom - 10)
+            {
+                DespawnPowerUpServerRpc();
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -136,7 +149,6 @@ public class PowerUp : NetworkBehaviour
         {
             DespawnPowerUpServerRpc();
         }
-            //Destroy(gameObject);
     }
 
 
@@ -174,27 +186,13 @@ public class PowerUp : NetworkBehaviour
     }
 
 
-
-
-
     [ServerRpc]
     private void DespawnPowerUpServerRpc()
     {
-        DespawnPowerUpClientRpc();
+        NetworkObject.Despawn();
+        NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, powerUpData.powerUp);
 
-        //powerUp.Despawn();
     }
 
-
-    [ClientRpc]
-    private void DespawnPowerUpClientRpc()
-    {
-        NetworkObject powerUp = GetComponent<NetworkObject>();
-        powerUp.gameObject.SetActive(false);
-
-        Debug.Log("DespawnPowerUpClientRpc EJECUTADO!");
-
-        //powerUp.Despawn();
-    }
 
 }

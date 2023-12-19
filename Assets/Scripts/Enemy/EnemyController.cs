@@ -16,12 +16,15 @@ public class EnemyController : NetworkBehaviour
 
     private void Update()
     {
-        float yBottom = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).y;
-
-        if (transform.position.y <= yBottom - 10)
+        if (IsServer)
         {
-            NetworkObject.Despawn();
-            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+            float yBottom = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).y;
+
+            if (transform.position.y <= yBottom - 10)
+            {
+                NetworkObject.Despawn();
+                NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

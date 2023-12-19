@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSprite: {fileID: 0}
   playerID: 0
+  playerName: 
   enemysKilled:
     m_InternalValue: 0
   pointsEarned:
@@ -351,7 +352,7 @@ MonoBehaviour:
   rocketPointsAvaible:
   - {fileID: 1521864399869982764}
   - {fileID: 1195246263440786754}
-  fireRate: 0.5
+  fireRate: 0.2
   rocketFireRate: 0.9
 --- !u!114 &156361500000711893
 MonoBehaviour:
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14376bfe8ce86704fbb7c66d309d771c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 1
   CurrentHealth:
     m_InternalValue: 0
 --- !u!114 &6102545264264872279

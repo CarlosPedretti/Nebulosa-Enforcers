@@ -6,7 +6,8 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine.UI;
 using Unity.Netcode;
 
-public class ScorePlayerSingleUI : MonoBehaviour {
+public class ScorePlayerSingleUI : MonoBehaviour
+{
 
 
     [SerializeField] private TextMeshProUGUI playerNameText;
@@ -20,6 +21,7 @@ public class ScorePlayerSingleUI : MonoBehaviour {
     {
         playerKillsCount.text = playerLogic.enemysKilled.Value.ToString();
         playerPointsCount.text = playerLogic.pointsEarned.Value.ToString();
+        playerNameText.text = playerLogic.playerName;
         characterImage.sprite = playerLogic.currentSprite;
     }
 

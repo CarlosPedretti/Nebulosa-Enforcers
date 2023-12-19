@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0dc63738817d6e48a605587df7f8dd2, type: 3}
-  m_Name: PowerUp Data
+  m_Name: x3
   m_EditorClassIdentifier: 
-  powerUpDuration: 5
+  powerUpDuration: 10
+  powerUp: {fileID: 1559896689026767186, guid: 6c1daa4520f0cbb4db30f98afbeafeeb, type: 3}
   useDefaultFirePoint: 0
   bulletPrefab: {fileID: 3918099896978445691, guid: 81fbe97767b810c4ea07e35f82914b32, type: 3}
-  fireRate: 0.12
+  fireRate: 0.3
   firePointIndices: 000000000100000002000000
-  canHeal: 1
+  canHeal: 0
   quantityOfHeal: 1
-  canUseRockets: 1
+  canUseRockets: 0
   rocketPrefab: {fileID: 3918099896978445691, guid: 9d20684eadc0af04992141d496bd0418, type: 3}
-  rocketFireRate: 0.2
+  rocketFireRate: 0
   rocketPointsIndices: 0000000001000000

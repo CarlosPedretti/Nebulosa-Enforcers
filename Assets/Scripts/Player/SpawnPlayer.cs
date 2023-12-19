@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
+using Unity.Services.Lobbies.Models;
 
 public class SpawnPlayer : NetworkBehaviour
 {
@@ -14,6 +15,8 @@ public class SpawnPlayer : NetworkBehaviour
 
 
     public GameObject[] prefabs;
+
+    Player player;
 
     private void Awake()
     {
@@ -37,24 +40,39 @@ public class SpawnPlayer : NetworkBehaviour
             {
                 GameObject newPrefab = Instantiate(prefabs[0]);
                 newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
+
+                player = LobbyManager.Instance.GetPlayer();
+                newPrefab.GetComponent<PlayerLogic>().playerName = player.Data[LobbyManager.KEY_PLAYER_NAME].Value;
+
                 Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
             }
             else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<SpawnPlayer>().prefabID.Value == 1)
             {
                 GameObject newPrefab = Instantiate(prefabs[1]);
                 newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
+
+                player = LobbyManager.Instance.GetPlayer();
+                newPrefab.GetComponent<PlayerLogic>().playerName = player.Data[LobbyManager.KEY_PLAYER_NAME].Value;
+
                 Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
             }
             else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<SpawnPlayer>().prefabID.Value == 2)
             {
                 GameObject newPrefab = Instantiate(prefabs[2]);
                 newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
+
+                player = LobbyManager.Instance.GetPlayer();
+                newPrefab.GetComponent<PlayerLogic>().playerName = player.Data[LobbyManager.KEY_PLAYER_NAME].Value;
                 Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
             }
             else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<SpawnPlayer>().prefabID.Value == 3)
             {
                 GameObject newPrefab = Instantiate(prefabs[3]);
                 newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
+
+                player = LobbyManager.Instance.GetPlayer();
+                newPrefab.GetComponent<PlayerLogic>().playerName = player.Data[LobbyManager.KEY_PLAYER_NAME].Value;
+
                 Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
             }
 

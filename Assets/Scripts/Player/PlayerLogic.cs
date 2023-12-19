@@ -10,6 +10,8 @@ public class PlayerLogic : NetworkBehaviour
     [SerializeField] public Sprite currentSprite;
 
     public int playerID;
+    public string playerName;
+
     public NetworkVariable<int> enemysKilled = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     public NetworkVariable<int> pointsEarned = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
   enemyName: Dreadnought
   enemyPrefab: {fileID: 8476824446273973202, guid: f622500f9a772cc48a2941987e9f8af7, type: 3}
-  health: 5
+  health: 30
   speed: 4
