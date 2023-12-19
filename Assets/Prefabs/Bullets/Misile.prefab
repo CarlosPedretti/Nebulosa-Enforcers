@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0656f705141bf4eb52185087262daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletConfig: {fileID: 11400000, guid: 20ff287fadfe83d44b436a7a6aaa15f1, type: 2}
+  bulletConfig: {fileID: 11400000, guid: f425e40c11acf0140b69b6031c8c743c, type: 2}
   speed: 5
   rotacionSpeed: 200
   explosionRadius: 5

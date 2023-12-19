@@ -53,7 +53,7 @@ public class Weapon : NetworkBehaviour
         {
             foreach (Transform rocketPoint in rocketPoints)
             {
-                SpawnRocketServerRPC(rocketPoint.position, rocketPoint.rotation);
+                SpawnRocketServerRPC(rocketPoint.position, rocketPoint.rotation, playerLogic.playerID);
             }
 
             nextRocketTime = Time.time + rocketFireRate;
@@ -74,7 +74,7 @@ public class Weapon : NetworkBehaviour
     }
 
     [ServerRpc]
-    private void SpawnRocketServerRPC(Vector3 position, Quaternion rotation)
+    private void SpawnRocketServerRPC(Vector3 position, Quaternion rotation, int pID)
     {
         {
             NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(rocketPrefab, position, rotation);

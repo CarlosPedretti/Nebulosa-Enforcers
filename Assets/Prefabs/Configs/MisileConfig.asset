@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 517f9b911700b7f45851a4a65763a9e6, type: 3}
-  m_Name: BulletConfig
+  m_Name: MisileConfig
   m_EditorClassIdentifier: 
   bulletName: Misile
   bulletPrefab: {fileID: 2258211804484450964, guid: 578fff38ce6ab6f4fb851d31b5ccc0f4, type: 3}
   speed: 10
-  damage: 2
+  damage: 13

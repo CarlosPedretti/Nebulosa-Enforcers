@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4566418234648657442}
   - component: {fileID: -2925456734522553374}
   - component: {fileID: 3132747798201325185}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Misiles PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

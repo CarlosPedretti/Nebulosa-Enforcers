@@ -75,4 +75,9 @@ public class Missile : NetworkBehaviour, IProjectile
         NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
 
     }
+
+    public void GetShooterId(int pID)
+    {
+        currentPlayerBullet.Value = pID;
+    }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3140204573092743674}
   - component: {fileID: -7900983606227108109}
   - component: {fileID: -5512488479727232316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: x3 PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5333260285058964525}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4039991592622206833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint 1 Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 5195992327253046114}
   - component: {fileID: 4319385484953342338}
   - component: {fileID: 3488480034728718039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P4_PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,9 +225,9 @@ GameObject:
   - component: {fileID: 2217314945930345262}
   - component: {fileID: 1851878725990385225}
   - component: {fileID: 635950031843298768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player 4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  explosion_ParticleSys: {fileID: 4665586415067127383, guid: e91c43511ca5c2a40b23bc0eb1d5e0cb, type: 3}
   CurrentHealth:
     m_InternalValue: 0
 --- !u!114 &2550165941144662594
@@ -550,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398022547350034312}
   - component: {fileID: 7334680460071945681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P4_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5496705991759992061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint 0 Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4707549725702614459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4080221409016956595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5385691603513202112}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,13 +762,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5357400446550055620}
     m_Modifications:
+    - target: {fileID: 492534366183780168, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2578937941136124622, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
       propertyPath: m_Name
       value: Player_Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2578937941136124622, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578937941136124622, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3716938944059599184, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4829415837456213652, guid: ff4e65c07cb08de4898945dde060ab8f, type: 3}
       propertyPath: m_Pivot.x
