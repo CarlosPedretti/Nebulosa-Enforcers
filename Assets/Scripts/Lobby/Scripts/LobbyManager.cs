@@ -482,7 +482,7 @@ public class LobbyManager : NetworkBehaviour
     {
         if (hasGameStarted.Value)
         {
-            NetworkManager.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SpawnOtherPlayersServerRpc();
+            NetworkManager.LocalClient.PlayerObject.GetComponent<SpawnPlayer>().SpawnOtherPlayersServerRpc();
 
             Debug.Log("SpawnPlayers LobbyManager EJECUTADO!");
         }
@@ -525,15 +525,17 @@ public class LobbyManager : NetworkBehaviour
 
     public void StartGame()
     {
-            hasGameStarted.Value = true;
-            //LobbyUI.Instance.HideCanvas();
+        hasGameStarted.Value = true;
+        //LobbyUI.Instance.HideCanvas();
 
-            if (hasGameStarted.Value)
-            {
-                SpawnPlayers();
-            }
+        if (hasGameStarted.Value)
+        {
+           SpawnPlayers();
+        }
 
-            Debug.Log("StartGame EJECUTADO!");
+        GameManager.Instance.StartTimer();
+
+        Debug.Log("StartGame EJECUTADO!");
     }
 
 }

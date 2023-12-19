@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class EnemyHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth;
+    [SerializeField] private int pointsForKilling;
 
     private int currentHealth;
 
@@ -22,16 +23,27 @@ public class EnemyHealthSystem : NetworkBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int pID)
     {
-        if (!IsServer) return;
-
-        currentHealth -= damage;
-
-        if (currentHealth < 1)
+        if (IsServer)
         {
-            //Destroy(gameObject);
-            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+            currentHealth -= damage;
+
+            if (currentHealth == 0)
+            {
+                PlayerLogic[] playerLogics = FindObjectsOfType<PlayerLogic>();
+
+                PlayerLogic playerWithID = System.Array.Find(playerLogics, player => player.playerID == pID);
+
+                if (playerWithID != null)
+                {
+                    playerWithID.enemysKilled.Value += 1;
+                    playerWithID.pointsEarned.Value += pointsForKilling;
+                }
+            }
+            Debug.Log("Modificado desde el serverAAAA");
         }
+
     }
+
 }

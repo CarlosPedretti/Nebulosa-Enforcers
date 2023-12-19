@@ -259,7 +259,7 @@ public class LobbyUI : NetworkBehaviour
 
     public void ButtonSetPrefabPlayer(int prefabID)
     {
-        NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, prefabID);
+        NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<SpawnPlayer>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, prefabID);
     }
 
 

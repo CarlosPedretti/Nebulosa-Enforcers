@@ -11,6 +11,9 @@ public class Bullet : NetworkBehaviour
     [SerializeField] private int damage;
     [SerializeField] private float bulletSpeed = 20;
     [SerializeField] private GameObject bulletPrefab;
+
+    public NetworkVariable<int> currentPlayerBullet = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
     private Rigidbody2D rb;
 
     private void OnEnable()
@@ -35,7 +38,7 @@ public class Bullet : NetworkBehaviour
         if (!IsServer) return;
 
         float screenHeight = Screen.height;
-        Debug.Log(Screen.height);
+
         Vector3 position = transform.position;
 
         if (position.y > screenHeight || position.y < 0)
@@ -49,11 +52,16 @@ public class Bullet : NetworkBehaviour
         if(!IsServer) return;
         if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+            collision.GetComponent<EnemyHealthSystem>().TakeDamage(damage, currentPlayerBullet.Value);
             NetworkObject.Despawn();
 
             NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
 
         }
+    }
+
+    public void GetShooterId(int pID)
+    {
+        currentPlayerBullet.Value = pID;
     }
 }

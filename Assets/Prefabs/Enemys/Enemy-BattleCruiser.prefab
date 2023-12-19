@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
+  pointsForKilling: 1
+  enemyPrefab: {fileID: 0}
 --- !u!114 &7515629170203199211
 MonoBehaviour:
   m_ObjectHideFlags: 0
