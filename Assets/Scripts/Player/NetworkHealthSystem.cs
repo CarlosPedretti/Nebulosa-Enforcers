@@ -50,7 +50,12 @@ public class NetworkHealthSystem : NetworkBehaviour
     [ServerRpc]
     private void DespawnPlayerServerRpc()
     {
-        DespawnPlayerClientRpc();
+        SpriteRenderer powerUpSprite = GetComponent<SpriteRenderer>();
+        powerUpSprite.enabled = false;
+
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+        //DespawnPlayerClientRpc();
     }
 
     [ClientRpc]

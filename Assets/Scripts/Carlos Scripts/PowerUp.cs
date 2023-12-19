@@ -197,14 +197,15 @@ public class PowerUp : NetworkBehaviour
     [ServerRpc]
     private void DespawnPowerUpServerRpc()
     {
-        DespawnPowerUpClientRpc();
+        NetworkObject.Despawn();
+        NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, powerUpData.powerUp);
+        //DespawnPowerUpClientRpc();
     }
 
     [ClientRpc]
     private void DespawnPowerUpClientRpc()
     {
-        NetworkObject.Despawn();
-        NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, powerUpData.powerUp);
+        
     }
 
     private void OnEnable()
