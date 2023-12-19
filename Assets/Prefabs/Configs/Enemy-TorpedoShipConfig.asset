@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Enemy-TorpedoShipConfig
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  enemyName: 
-  enemyPrefab: {fileID: 0}
-  health: 0
-  speed: 0
+  enemyName: TorpedoShip
+  enemyPrefab: {fileID: 4460394979675766421, guid: 97db4af89e4469e4ea8fda2cc08c9b9d, type: 3}
+  health: 4
+  speed: 4

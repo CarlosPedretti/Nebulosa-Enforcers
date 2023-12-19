@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Enemy-FrigateConfig
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  enemyName: 
-  enemyPrefab: {fileID: 0}
-  health: 0
-  speed: 0
+  enemyName: Frigate
+  enemyPrefab: {fileID: 5287591197497180484, guid: 05f7b4ea9a075164ab1d18940c325808, type: 3}
+  health: 2
+  speed: 5

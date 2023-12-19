@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e669fc400c264429d9517da4df8508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTypeConfig: {fileID: 11400000, guid: 70073f1d1db2bec4384f77a5d28ec0cb, type: 2}
+  enemyTypeConfig: {fileID: 11400000, guid: 758d1d0e73b1f0645a6d60a8b445f83b, type: 2}
 --- !u!114 &-5945562616832971002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59b6c20b3584ab4cae12774be739174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletConfig: {fileID: 0}
   speed: 1
 --- !u!114 &-3017572635816709297
 MonoBehaviour:
@@ -81,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  enemyPrefab: {fileID: 0}
+  pointsForKilling: 5
   explosion_ParticleSys: {fileID: 5924611517396676044, guid: 04ee31f680e49674092960f43fbdd8f7, type: 3}
 --- !u!114 &7515629170203199211
 MonoBehaviour:
@@ -148,7 +147,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

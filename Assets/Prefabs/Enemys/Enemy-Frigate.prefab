@@ -66,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d86228f1ce83a4db5211ee1b390efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletConfig: {fileID: 0}
   speed: 1
   amplitude: 1.05
   period: 0.64
@@ -85,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  enemyPrefab: {fileID: 0}
+  pointsForKilling: 0
   explosion_ParticleSys: {fileID: 6291563028146478861, guid: a2544db116862374383c431d69bd5a55, type: 3}
 --- !u!114 &5617583369888688294
 MonoBehaviour:
@@ -152,7 +151,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
