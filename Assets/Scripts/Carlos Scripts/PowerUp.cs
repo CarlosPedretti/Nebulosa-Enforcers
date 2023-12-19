@@ -151,6 +151,15 @@ public class PowerUp : NetworkBehaviour
         }
     }
 
+    private void PoolReUse()
+    {
+        SpriteRenderer powerUpSprite = GetComponent<SpriteRenderer>();
+        powerUpSprite.enabled = true;
+
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = true;
+    }
+
 
 
     private List<Transform> GetFirePointsFromIndices(List<Transform> firePointAvaible, List<int> firePointIndices)
@@ -192,6 +201,7 @@ public class PowerUp : NetworkBehaviour
         NetworkObject.Despawn();
         NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, powerUpData.powerUp);
 
+        PoolReUse();
     }
 
 
