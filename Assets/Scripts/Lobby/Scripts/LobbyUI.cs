@@ -10,7 +10,8 @@ using System.Net;
 using System.Net.Sockets;
 using Unity.Netcode.Transports.UTP;
 
-public class LobbyUI : NetworkBehaviour {
+public class LobbyUI : NetworkBehaviour
+{
 
 
     public static LobbyUI Instance { get; private set; }
@@ -20,9 +21,11 @@ public class LobbyUI : NetworkBehaviour {
     [SerializeField] private Transform container;
     [SerializeField] private Transform canvas;
     [SerializeField] private Transform prefabSelectionButtons;
+    [SerializeField] private Transform countDownContainer;
     [SerializeField] private TextMeshProUGUI lobbyNameText;
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] private TextMeshProUGUI gameModeText;
+    [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Button changeP1_Button;
     [SerializeField] private Button changeP2_Button;
     [SerializeField] private Button changeP3_Button;
@@ -34,6 +37,8 @@ public class LobbyUI : NetworkBehaviour {
 
     public NetworkVariable<bool> canUseStartRelayAndChangeGameMode = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public NetworkVariable<bool> canHideCanvas = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> showCountDown = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> countDown = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
 
 
@@ -47,25 +52,21 @@ public class LobbyUI : NetworkBehaviour {
         changeP1_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset1);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 0);
             ButtonSetPrefabPlayer(0);
         });
         changeP2_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset2);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 1);
             ButtonSetPrefabPlayer(1);
         });
         changeP3_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset3);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
             ButtonSetPrefabPlayer(2);
         });
         changeP4_Button.onClick.AddListener(() =>
         {
             LobbyManager.Instance.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Asset4);
-            //NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, 2);
             ButtonSetPrefabPlayer(3);
         });
 
@@ -86,7 +87,7 @@ public class LobbyUI : NetworkBehaviour {
 
         startGameButton.onClick.AddListener(() =>
         {
-            LobbyManager.Instance.StartGame();
+            StartCoroutine(WaitAndShowCountdown(5));
         });
 
 
@@ -104,9 +105,15 @@ public class LobbyUI : NetworkBehaviour {
         {
             canHideCanvas.Value = false;
         }
+
+        if (showCountDown != null)
+        {
+            showCountDown.Value = false;
+        }
     }
 
-private void Start() {
+    private void Start()
+    {
 
         NetworkSpawn();
 
@@ -119,23 +126,28 @@ private void Start() {
         Hide();
     }
 
-    private void LobbyManager_OnLeftLobby(object sender, System.EventArgs e) {
+    private void LobbyManager_OnLeftLobby(object sender, System.EventArgs e)
+    {
         ClearLobby();
         Hide();
     }
 
-    private void UpdateLobby_Event(object sender, LobbyManager.LobbyEventArgs e) {
+    private void UpdateLobby_Event(object sender, LobbyManager.LobbyEventArgs e)
+    {
         UpdateLobby();
     }
 
-    private void UpdateLobby() {
+    private void UpdateLobby()
+    {
         UpdateLobby(LobbyManager.Instance.GetJoinedLobby());
     }
 
-    private void UpdateLobby(Lobby lobby) {
+    private void UpdateLobby(Lobby lobby)
+    {
         ClearLobby();
 
-        foreach (Player player in lobby.Players) {
+        foreach (Player player in lobby.Players)
+        {
             Transform playerSingleTransform = Instantiate(playerSingleTemplate, container);
             playerSingleTransform.gameObject.SetActive(true);
             LobbyPlayerSingleUI lobbyPlayerSingleUI = playerSingleTransform.GetComponent<LobbyPlayerSingleUI>();
@@ -186,6 +198,17 @@ private void Start() {
         }
 
 
+        if (showCountDown.Value)
+        {
+            countDownContainer.gameObject.SetActive(true);
+        }
+        else
+        {
+            countDownContainer.gameObject.SetActive(false);
+        }
+
+
+
         lobbyNameText.text = lobby.Name;
         playerCountText.text = lobby.Players.Count + "/" + lobby.MaxPlayers;
         gameModeText.text = lobby.Data[LobbyManager.KEY_GAME_MODE].Value;
@@ -193,18 +216,22 @@ private void Start() {
         Show();
     }
 
-    private void ClearLobby() {
-        foreach (Transform child in container) {
+    private void ClearLobby()
+    {
+        foreach (Transform child in container)
+        {
             if (child == playerSingleTemplate) continue;
             Destroy(child.gameObject);
         }
     }
 
-    private void Hide() {
+    private void Hide()
+    {
         gameObject.SetActive(false);
     }
 
-    private void Show() {
+    private void Show()
+    {
         gameObject.SetActive(true);
     }
 
@@ -218,10 +245,57 @@ private void Start() {
         canHideCanvas.Value = true;
     }
 
+    public void ShowCountdown()
+    {
+        showCountDown.Value = true;
+    }
+
+    public void HideCountdown()
+    {
+        showCountDown.Value = false;
+    }
+
+
 
     public void ButtonSetPrefabPlayer(int prefabID)
     {
-        NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerLogic>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, prefabID);
+        NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<SpawnPlayer>().SetPlayerPrefabServerRpc(NetworkManager.Singleton.LocalClientId, prefabID);
+    }
+
+
+    IEnumerator WaitAndShowCountdown(int waitTime)
+    {
+        ShowCountdown();
+
+        for (int i = waitTime; i > 0; i--)
+        {
+            countDown.Value = i;
+            countdownText.text = countDown.Value.ToString();
+
+            yield return new WaitForSeconds(1f);
+        }
+
+
+        HideCanvas();
+        HideCountdown();
+
+        LobbyManager.Instance.StartGame();
+    }
+
+    private void CountDownChanged(int oldValue, int newValue)
+    {
+        countdownText.text = newValue.ToString();
+    }
+
+    void OnEnable()
+    {
+        countDown.OnValueChanged += CountDownChanged;
+    }
+
+    void OnDisable()
+    {
+        countDown.OnValueChanged -= CountDownChanged;
+
     }
 
 }

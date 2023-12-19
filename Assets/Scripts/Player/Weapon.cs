@@ -22,6 +22,7 @@ public class Weapon : NetworkBehaviour
     [SerializeField] public float fireRate = 0.5f;
     [SerializeField] public float rocketFireRate = 0.9f;
 
+    private PlayerLogic playerLogic;
 
     private float nextFireTime;
     private float nextRocketTime;
@@ -29,6 +30,8 @@ public class Weapon : NetworkBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+
+        playerLogic = GetComponent<PlayerLogic>();
     }
 
     void Update()
@@ -39,7 +42,7 @@ public class Weapon : NetworkBehaviour
         {
             foreach (Transform firePoint in firePoints)
             {
-                SpawnBulletServerRPC(firePoint.position, firePoint.rotation);
+                SpawnBulletServerRPC(firePoint.position, firePoint.rotation, playerLogic.playerID);
             }
 
             nextFireTime = Time.time + fireRate;
@@ -59,11 +62,14 @@ public class Weapon : NetworkBehaviour
 
 
     [ServerRpc]
-    private void SpawnBulletServerRPC(Vector3 position, Quaternion rotation)
+
+    private void SpawnBulletServerRPC(Vector3 position, Quaternion rotation, int pID)
     {
         {
             NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(bulletPrefab, position, rotation);
             if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
+
+            instansiatedBullet.GetComponent<Bullet>().GetShooterId(pID);
         }
     }
 

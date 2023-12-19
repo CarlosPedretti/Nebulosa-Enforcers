@@ -1,69 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using System;
-using UnityEngine;
 using Unity.Netcode;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class PlayerLogic : NetworkBehaviour
 {
     public static PlayerLogic Instance { get; private set; }
 
-    public NetworkVariable<int> prefabID;
+    [SerializeField] public Sprite currentSprite;
 
-    private NetworkVariable<bool> allPlayersProcessed = new NetworkVariable<bool>(false);
-
-
-    public GameObject[] prefabs;
+    public int playerID;
+    public NetworkVariable<int> enemysKilled = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<int> pointsEarned = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     private void Awake()
     {
         Instance = this;
     }
 
-    [ServerRpc]
-    public void SetPlayerPrefabServerRpc(ulong pID, int prefabID)
-    {
-        NetworkManager.ConnectedClients[pID].PlayerObject.GetComponent<PlayerLogic>().prefabID.Value = prefabID;
-    }
 
-
-    [ServerRpc]
-    public void SpawnOtherPlayersServerRpc()
+    private void Start()
     {
-        foreach (ushort pID in NetworkManager.Singleton.ConnectedClientsIds)
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
         {
-                if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<PlayerLogic>().prefabID.Value == 0)
-                {
-                    GameObject newPrefab = Instantiate(prefabs[0]);
-                    newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
-                    Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
-                }
-                else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<PlayerLogic>().prefabID.Value == 1)
-                {
-                    GameObject newPrefab = Instantiate(prefabs[1]);
-                    newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
-                    Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
-                }
-                else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<PlayerLogic>().prefabID.Value == 2)
-                {
-                    GameObject newPrefab = Instantiate(prefabs[2]);
-                    newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
-                    Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
-                }
-                else if (NetworkManager.Singleton.ConnectedClientsList[pID].PlayerObject.GetComponent<PlayerLogic>().prefabID.Value == 3)
-                {
-                    GameObject newPrefab = Instantiate(prefabs[3]);
-                    newPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(pID);
-                    Debug.Log("SpawnOtherPlayersServerRpc EJECUTADO! " + prefabID.Value);
-                }
-
-            if (pID == NetworkManager.Singleton.ConnectedClientsIds[NetworkManager.Singleton.ConnectedClientsIds.Count - 1])
-            {
-                allPlayersProcessed.Value = true;
-                break;
-            }
-
+            currentSprite = spriteRenderer.sprite;
         }
     }
+
 }

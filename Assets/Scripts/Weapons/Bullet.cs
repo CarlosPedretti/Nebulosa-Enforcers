@@ -11,7 +11,11 @@ public class Bullet : NetworkBehaviour, IProjectile
     [SerializeField] private BulletConfig bulletConfig;
     [SerializeField] private int damage;
     [SerializeField] private float bulletSpeed = 20;
-    private GameObject bulletPrefab;
+
+    [SerializeField] private GameObject bulletPrefab;
+
+    public NetworkVariable<int> currentPlayerBullet = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
     private Rigidbody2D rb;
 
     private void OnEnable()
@@ -45,7 +49,21 @@ public class Bullet : NetworkBehaviour, IProjectile
 
         NetworkObject.Despawn();
         NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
+    }
+}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(!IsServer) return;
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyHealthSystem>().TakeDamage(damage, currentPlayerBullet.Value);
+            DespawnProjectile();     
+        }
     }
 
+    public void GetShooterId(int pID)
+    {
+        currentPlayerBullet.Value = pID;
+    }
 }

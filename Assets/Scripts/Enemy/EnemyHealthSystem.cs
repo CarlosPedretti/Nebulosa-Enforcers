@@ -9,10 +9,14 @@ public class EnemyHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth;
 
+    [SerializeField] private int pointsForKilling;
+
     private int currentHealth;
 
     [SerializeField] private GameObject enemyPrefab;
+
     [SerializeField] private GameObject explosion_ParticleSys;
+
 
     void Start()
     {
@@ -23,19 +27,29 @@ public class EnemyHealthSystem : NetworkBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int pID)
     {
-        if (!IsServer) return;
-
-        currentHealth -= damage;
-
-        if (currentHealth < 1)
+        if (IsServer)
         {
-            GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
-            explosionInstantiated.GetComponent<NetworkObject>().Spawn();
+            currentHealth -= damage;
 
-            NetworkObject.Despawn();
+            if (currentHealth == 0)
+            {
+                PlayerLogic[] playerLogics = FindObjectsOfType<PlayerLogic>();
+
+                PlayerLogic playerWithID = System.Array.Find(playerLogics, player => player.playerID == pID);
+
+                if (playerWithID != null)
+                {
+                    playerWithID.enemysKilled.Value += 1;
+                    playerWithID.pointsEarned.Value += pointsForKilling;
+                }
+				GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
+            explosionInstantiated.GetComponent<NetworkObject>().Spawn();
+			
+			NetworkObject.Despawn();
             NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+			}            
         }
     }
 }

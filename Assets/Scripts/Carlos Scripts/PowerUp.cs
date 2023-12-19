@@ -123,8 +123,8 @@ public class PowerUp : NetworkBehaviour
         SpriteRenderer powerUpSprite = GetComponent<SpriteRenderer>();
         powerUpSprite.enabled = false;
 
-        CapsuleCollider2D capsuleCollider = GetComponent<CapsuleCollider2D>();
-        capsuleCollider.enabled = false;
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
 
         Debug.Log("RevertChanges EJECUTADO!");
         yield return new WaitForSeconds(powerUpData.powerUpDuration);
