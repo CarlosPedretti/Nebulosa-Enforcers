@@ -7,11 +7,12 @@ using Unity.Netcode;
 
 public class EnemyMovement : NetworkBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] protected BulletConfig bulletConfig;
+    [SerializeField] protected float speed;
 
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -24,13 +25,13 @@ public class EnemyMovement : NetworkBehaviour
         CalculateMovement();
     }
 
-    private void CalculateMovement()
+    protected virtual void CalculateMovement()
     {
         Vector2 movement = Vector2.down * speed * Time.fixedDeltaTime;
         movement += rb.position;
         MoveToPosition(movement);
     }
-    private void MoveToPosition(Vector2 position)
+    protected void MoveToPosition(Vector2 position)
     {
         rb.MovePosition(position);
     }

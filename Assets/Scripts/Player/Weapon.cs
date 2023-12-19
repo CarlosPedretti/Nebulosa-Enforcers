@@ -30,8 +30,8 @@ public class Weapon : NetworkBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        playerLogic = GetComponent<PlayerLogic>();
 
+        playerLogic = GetComponent<PlayerLogic>();
     }
 
     void Update()
@@ -62,6 +62,7 @@ public class Weapon : NetworkBehaviour
 
 
     [ServerRpc]
+
     private void SpawnBulletServerRPC(Vector3 position, Quaternion rotation, int pID)
     {
         {

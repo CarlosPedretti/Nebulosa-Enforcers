@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a500e3e2a13c6194ca8ed540e56d5e98
+      internalID: -2095184598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a2f2e7c98b2d04fa34baf80987a00e
+      internalID: -1341691959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_2
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 6
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37dfd14f6176f7e42b269d039261b348
+      internalID: 376719578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_3
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369888f9f5e064241b7eb4a85afdb579
+      internalID: -565290608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_4
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ccc096a75829642b88405c8a6bb1a6
+      internalID: 559897390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_5
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59796b74eb3afd54da1b4583c023f5ac
+      internalID: 1891625594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_6
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 7
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9eadebcef8e4c4ea30d574b7f49fbe
+      internalID: -352697028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nautolan Ship - Dreadnought - Engine Effect_7
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 7
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac20b977eddbf824b91109a97a311e9e
+      internalID: 1776928044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Dreadnought - Engine Effect_0: -2095184598
+      Nautolan Ship - Dreadnought - Engine Effect_1: -1341691959
+      Nautolan Ship - Dreadnought - Engine Effect_11: -2043513313
+      Nautolan Ship - Dreadnought - Engine Effect_13: -1730240525
+      Nautolan Ship - Dreadnought - Engine Effect_15: 1887305495
+      Nautolan Ship - Dreadnought - Engine Effect_2: 376719578
+      Nautolan Ship - Dreadnought - Engine Effect_3: -565290608
+      Nautolan Ship - Dreadnought - Engine Effect_4: 559897390
+      Nautolan Ship - Dreadnought - Engine Effect_5: 1891625594
+      Nautolan Ship - Dreadnought - Engine Effect_6: -352697028
+      Nautolan Ship - Dreadnought - Engine Effect_7: 1776928044
+      Nautolan Ship - Dreadnought - Engine Effect_9: -1654359210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

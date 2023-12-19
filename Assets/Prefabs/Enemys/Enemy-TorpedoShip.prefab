@@ -37,7 +37,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1323222284742052286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &8131223836781965388
@@ -65,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59b6c20b3584ab4cae12774be739174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletConfig: {fileID: 0}
   speed: 1
 --- !u!114 &2283990895488315929
 MonoBehaviour:
@@ -79,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  pointsForKilling: 2
   enemyPrefab: {fileID: 0}
+  explosion_ParticleSys: {fileID: 907770897433799937, guid: cdef886ba1dad1f468ccfc250dd43a97, type: 3}
 --- !u!114 &612495235905109888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -175710583298311563, guid: 3deb4cb932ee5b047a2c8eeda9371e52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -293,3 +295,65 @@ PolygonCollider2D:
       - {x: 0.56, y: -0.32}
       - {x: 0.84, y: -0.32}
   m_UseDelaunayMesh: 0
+--- !u!1001 &7213133992916109555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1579326067351123946}
+    m_Modifications:
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911161318604974376, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+      propertyPath: m_Name
+      value: Nautolan Ship - Torpedo Ship - Engine Effect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+--- !u!4 &1323222284742052286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8522838604679020877, guid: f77d992a80f620d45bded82698cf5ef0, type: 3}
+  m_PrefabInstance: {fileID: 7213133992916109555}
+  m_PrefabAsset: {fileID: 0}

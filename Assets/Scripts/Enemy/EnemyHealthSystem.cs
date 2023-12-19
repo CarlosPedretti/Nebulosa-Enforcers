@@ -8,11 +8,15 @@ using UnityEngine.UIElements;
 public class EnemyHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth;
+
     [SerializeField] private int pointsForKilling;
 
     private int currentHealth;
 
     [SerializeField] private GameObject enemyPrefab;
+
+    [SerializeField] private GameObject explosion_ParticleSys;
+
 
     void Start()
     {
@@ -40,10 +44,12 @@ public class EnemyHealthSystem : NetworkBehaviour
                     playerWithID.enemysKilled.Value += 1;
                     playerWithID.pointsEarned.Value += pointsForKilling;
                 }
-            }
-            Debug.Log("Modificado desde el serverAAAA");
+				GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
+            explosionInstantiated.GetComponent<NetworkObject>().Spawn();
+			
+			NetworkObject.Despawn();
+            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+			}            
         }
-
     }
-
 }

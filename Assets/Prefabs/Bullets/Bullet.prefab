@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3229564133364583133}
   - component: {fileID: 5960520929833552901}
   - component: {fileID: -5472986759035175028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,6 @@ MonoBehaviour:
   bulletConfig: {fileID: 11400000, guid: 5e042fa0a14c96e48823293a8d516f6f, type: 2}
   damage: 1
   bulletSpeed: 20
-  bulletPrefab: {fileID: 0}
 --- !u!212 &2314179243380025321
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ using Unity.Netcode;
 public class NetworkHealthSystem : NetworkBehaviour
 {
     [SerializeField] private int maxHealth = 3;
-    public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>(default, NetworkVariableReadPermission.Owner, NetworkVariableWritePermission.Owner);
 
+    public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>(default, NetworkVariableReadPermission.Owner, NetworkVariableWritePermission.Owner);
 
     private void Start()
     {
@@ -18,6 +18,4 @@ public class NetworkHealthSystem : NetworkBehaviour
     {
         CurrentHealth.Value += healAmount;
     }
-
 }
-
