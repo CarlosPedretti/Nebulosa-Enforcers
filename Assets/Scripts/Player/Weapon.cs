@@ -79,6 +79,8 @@ public class Weapon : NetworkBehaviour
         {
             NetworkObject instansiatedBullet = NetworkObjectPool.Singleton.GetNetworkObject(rocketPrefab, position, rotation);
             if (!instansiatedBullet.IsSpawned) instansiatedBullet.Spawn(true);
+
+            instansiatedBullet.GetComponent<Missile>().GetShooterId(pID);
         }
     }
 }

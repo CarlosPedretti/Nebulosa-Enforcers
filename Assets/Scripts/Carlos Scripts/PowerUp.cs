@@ -161,7 +161,6 @@ public class PowerUp : NetworkBehaviour
     }
 
 
-
     private List<Transform> GetFirePointsFromIndices(List<Transform> firePointAvaible, List<int> firePointIndices)
     {
         List<Transform> firePoints = new List<Transform>(firePointIndices.Count);
@@ -201,8 +200,13 @@ public class PowerUp : NetworkBehaviour
         NetworkObject.Despawn();
         NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, powerUpData.powerUp);
 
+    }
+
+    private void OnEnable()
+    {
         PoolReUse();
     }
+
 
 
 }

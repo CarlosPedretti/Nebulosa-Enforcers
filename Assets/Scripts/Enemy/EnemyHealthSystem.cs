@@ -36,7 +36,7 @@ public class EnemyHealthSystem : NetworkBehaviour
         {
             currentHealth -= damage;
 
-            if (currentHealth == 0)
+            if (currentHealth <= 0)
             {
                 PlayerLogic[] playerLogics = FindObjectsOfType<PlayerLogic>();
 
@@ -48,10 +48,10 @@ public class EnemyHealthSystem : NetworkBehaviour
                     playerWithID.pointsEarned.Value += pointsForKilling;
                 }
 				GameObject explosionInstantiated = Instantiate(explosion_ParticleSys, transform.position, transform.rotation);
-            explosionInstantiated.GetComponent<NetworkObject>().Spawn();
+                explosionInstantiated.GetComponent<NetworkObject>().Spawn();
 			
-			NetworkObject.Despawn();
-            NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
+			    NetworkObject.Despawn();
+                NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, enemyPrefab);
 			}            
         }
     }

@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletConfig: {fileID: 11400000, guid: f425e40c11acf0140b69b6031c8c743c, type: 2}
-  speed: 5
+  speed: 8
   rotacionSpeed: 200
-  explosionRadius: 5
+  explosionRadius: 2
   damage: 3
   currentPlayerBullet:
     m_InternalValue: 0
