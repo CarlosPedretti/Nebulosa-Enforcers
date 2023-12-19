@@ -7,7 +7,7 @@ using Unity.Netcode;
 
 public class EnemyMovement : NetworkBehaviour
 {
-    [SerializeField] protected BulletConfig bulletConfig;
+    //[SerializeField] protected BulletConfig bulletConfig;
     [SerializeField] protected float speed;
 
     protected Rigidbody2D rb;

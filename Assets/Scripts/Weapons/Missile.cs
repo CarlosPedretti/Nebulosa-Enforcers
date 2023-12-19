@@ -11,6 +11,7 @@ public class Missile : NetworkBehaviour, IProjectile
     [SerializeField] private float explosionRadius = 5;
     [SerializeField] private int damage = 2;
     private GameObject bulletPrefab;
+    public NetworkVariable<int> currentPlayerBullet = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
 
     private Transform target;
@@ -61,7 +62,7 @@ public class Missile : NetworkBehaviour, IProjectile
 
             if (objeto.gameObject.TryGetComponent(out EnemyHealthSystem enemyHealthSystem))
             {
-                enemyHealthSystem.TakeDamage(damage);
+                enemyHealthSystem.TakeDamage(damage, currentPlayerBullet.Value);
             }
         }
         DespawnProjectile();

@@ -32,16 +32,6 @@ public class Bullet : NetworkBehaviour, IProjectile
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * bulletSpeed;
     } 
-   
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!IsServer) return;
-        if (collision.CompareTag("Enemy"))
-        {
-            collision.GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-            DespawnProjectile();
-        }
-    }
 
     public void DespawnProjectile()
     {
@@ -50,7 +40,7 @@ public class Bullet : NetworkBehaviour, IProjectile
         NetworkObject.Despawn();
         NetworkObjectPool.Singleton.ReturnNetworkObject(NetworkObject, bulletPrefab);
     }
-}
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

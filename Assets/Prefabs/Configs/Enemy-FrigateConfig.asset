@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09efbabfa559f3e43accb3bd0fd577e4, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Enemy-FrigateConfig
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
   enemyName: 
-  enemyPrefab: {fileID: 5287591197497180484, guid: 05f7b4ea9a075164ab1d18940c325808, type: 3}
+  enemyPrefab: {fileID: 0}
   health: 0
   speed: 0

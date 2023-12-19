@@ -13,7 +13,7 @@ public class EnemyHealthSystem : NetworkBehaviour
 
     private int currentHealth;
 
-    [SerializeField] private GameObject enemyPrefab;
+    private GameObject enemyPrefab;
 
     [SerializeField] private GameObject explosion_ParticleSys;
 
