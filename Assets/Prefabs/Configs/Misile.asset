@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: mis
+  m_Name: Misile
   m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
   bulletName: Misile
   bulletPrefab: {fileID: 2258211804484450964, guid: 578fff38ce6ab6f4fb851d31b5ccc0f4, type: 3}

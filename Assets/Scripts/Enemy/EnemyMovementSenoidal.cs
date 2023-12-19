@@ -21,9 +21,9 @@ public class EnemyMovementSenoidal : EnemyMovement
         Vector2 movementDirection;
 
         movementDirection.y = -speed * Time.fixedDeltaTime;
-        movementDirection.x = amplitude * Mathf.Sin(period * movementDirection.y) + shift;
+        movementDirection.x = amplitude * Mathf.Sin(period * (Time.time + shift));
 
         movementDirection += rb.position;
         MoveToPosition(movementDirection);
-    }    
+    }
 }
